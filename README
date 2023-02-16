@@ -1,0 +1,30 @@
+< ---------------------------------------- >
+
+    -> Tarefas:
+
+    -> Structure:
+        - Criar site com flask (.)
+        - Configurar flask (.)
+        - Criar Pasta Templates e Static (.)
+        - Criar Bluprint site (.)
+        - Criar DB (.)
+        - Terminar Python (.)
+        - Criar HTML em Tamplates (.)
+        - Terminar HTML (.)
+        - Criar JS e CSS em static (.)
+        - Terminar JS e CSS (.)
+
+< ---------------------------------------- >
+
+    -> Assets:
+
+        - flask
+        - sqlite3
+
+< ---------------------------------------- >
+
+    -> Run:
+
+        - Excutar main.py
+
+        - Usar url criada no CMD
