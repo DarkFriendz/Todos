@@ -20,21 +20,37 @@ div table {
     margin-top: 15px;
 }
   
-div  th, td {
+div th, td {
     text-align: center;
     padding: 8px;
 }
   
-div  th {
+div th {
     background-color: rgb(200, 200, 200);
     color: rgb(102, 102, 102);
     font-weight: bold;
-  }
+}
+
+div th {
+    border-top: 1px solid rgb(102, 102, 102);
+    border-left: 1px solid rgb(102, 102, 102);
+    border-bottom: 1px solid rgb(102, 102, 102);
+} 
   
 div  tr:nth-child(even) {
     background-color: rgb(249, 249, 249);
-  }
-  
-div  tr:hover {
+}
+
+div td {
+    border-top: 1px solid rgb(102, 102, 102);
+    border-left: 1px solid rgb(102, 102, 102);
+    border-bottom: 1px solid rgb(102, 102, 102);
+}
+
+div td.fim {
+    border-right: 1px solid rgb(102, 102, 102);
+}
+
+div td:hover {
     background-color: rgb(220, 220, 220);
-  }
+}

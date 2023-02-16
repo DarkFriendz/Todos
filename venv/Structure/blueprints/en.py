@@ -8,6 +8,7 @@ en = Blueprint('english', __name__, url_prefix='/en/')
 def index(page=None):
     if page != None:
         if page == "work":
-            return render_template("en/work.html")
+            tasks = ["ola", "ola2"]
+            return render_template("en/work.html", tasks=tasks)
     else:
         return redirect('/en/work')
