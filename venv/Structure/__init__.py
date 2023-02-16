@@ -14,6 +14,14 @@ class web:
 
         #Database Website
         self.db = db(config)
+
+        #Get Blueprints
+        from .blueprints.en import en
+        from .blueprints.pt import pt
+
+        #Blueprints
+        self.website.register_blueprint(en)
+        self.website.register_blueprint(pt)
         
 
     #Run Website
