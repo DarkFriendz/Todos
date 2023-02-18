@@ -1,5 +1,5 @@
 #Assets
-from flask import Flask, redirect, flash
+from flask import Flask, redirect, session, flash
 
 #Class Web
 class web:
@@ -11,6 +11,9 @@ class web:
         #Secret Website
         self.website.secret_key = config['Secret']
 
+        #Languages Website
+        self.languages = ['en', 'pt']
+
         #Get Blueprints
         from .blueprints.en.en import en
         from .blueprints.pt.pt import pt
@@ -21,11 +24,21 @@ class web:
 
     #Run Web
     def run(self, debug=False):
-        #Config Language[
+        #Config Language
         @self.website.route('/')
         @self.website.route('/<lang>')
         def index(lang=None):
-            return f"{lang}"
+            if lang != None:
+                    for language in self.languages:
+                        if language == lang:
+                            try:
+                                if session['language']:
+                                    session['language'] = lang
+                            except:
+                                return redirect(f'/{lang}/')
+                    return redirect('/en/')
+            else:
+                return redirect('/en/')
 
         #Run Website
         self.website.run(debug=debug)
