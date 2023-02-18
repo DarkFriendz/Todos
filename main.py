@@ -1,5 +1,7 @@
 #Assets
-from Structue import web
+from Website import web
+
+#Config
 from config import config
 
 #Run
