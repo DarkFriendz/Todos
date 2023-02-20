@@ -16,7 +16,7 @@ def index(page=None):
         elif page == 'teste':
             
             flash('error',  'error')
-            flash('error',  'error')
+            flash('Sucess',  'sucess')
             flash('error',  'error')
             return redirect('/en/home')
         return redirect('/en/home')

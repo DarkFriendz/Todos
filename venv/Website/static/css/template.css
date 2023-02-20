@@ -3,7 +3,7 @@ body {
     font-family: Georgia, 'Times New Roman', Times, serif;
     background-color: rgb(230, 230, 230);
 }
-    
+
 div {
     margin: 15px auto;
     margin-top: 0px;
@@ -36,4 +36,57 @@ div#Warning ul li.sucess {
 
 div#Warning ul li.error {
     background-color: rgb(255, 80, 80);
+}
+
+div#Warning ul li button {
+    box-sizing: border-box;
+    position: relative;
+    display: block;
+    transform: scale(var(--ggs,1));
+    width: 22px;
+    height: 22px;
+    margin-right: 15px;
+    background: none;
+    border: 2px solid;
+    border-radius: 40px;
+    float: right;
+}
+
+div#Warning ul li button::after,
+div#Warning ul li button::before {
+    content: "";
+    display: block;
+    box-sizing: border-box;
+    position: absolute;
+    width: 12px;
+    height: 2px;
+    background: currentColor;
+    transform: rotate(45deg);
+    border-radius: 5px;
+    top: 8px;
+    left: 3px
+}
+
+div#Warning ul li button::after {
+    transform: rotate(-45deg)
+}
+
+div#Warning ul li.sucess button {
+    border-color: rgb(80, 230, 80);
+    color: rgb(80, 230, 80);
+}
+
+div#Warning ul li.sucess button:hover {
+    border-color: rgb(80, 200, 80);
+    color: rgb(80, 200, 80);
+}
+
+div#Warning ul li.error button {
+    border-color: rgb(230, 80, 80);
+    color: rgb(230, 80, 80);
+}
+
+div#Warning ul li.error button:hover {
+    border-color: rgb(200, 80, 80);
+    color: rgb(200, 80, 80);
 }

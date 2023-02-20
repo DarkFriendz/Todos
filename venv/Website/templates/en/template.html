@@ -13,8 +13,8 @@
             {% if flashs %}
                 <ul>
                     {% for count, message in flashs %}
-                        <li id="flashs{{count}}" class="{{message[1]}}">{{message[0]}}
-                            <button onclick="warning(flashs{{count}})">Click</button>
+                        <li id="flashs{{count}}" class="{{message[0]}}">{{message[1]}}
+                            <button onclick="warning(flashs{{count}})"></button>
                         </li>
                     {% endfor %}
                 </ul>
