@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title %}Template{% endblock %}</title>
+        <link rel="stylesheet" href="{{url_for('static', filename='css/template.css')}}">
+        {% block styles %}{% endblock %}
+    </head>
+    <body>
+        <div id="Warning">
+            {% if flashs %}
+                <ul>
+                    {% for count, message in flashs %}
+                        <li id="flashs{{count}}" class="{{message[1]}}">{{message[0]}}
+                            <button onclick="warning(flashs{{count}})">Click</button>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </div>
+        <div id="content">
+            {% block content %}{% endblock %}
+        </div>
+        <script src="{{url_for('static', filename='js/template.js')}}"></script>
+        {% block scripts %}{% endblock %}
+    </body>
+</html>

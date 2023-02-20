@@ -1,0 +1,39 @@
+body {
+    margin: 0px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: rgb(230, 230, 230);
+}
+    
+div {
+    margin: 15px auto;
+    margin-top: 0px;
+    padding: 5px;
+    border: 1px solid rgb(0, 0, 0);
+}
+
+div#content {
+    border: None;
+}
+
+div#Warning {
+    padding: 0px;
+}
+
+div#Warning ul {
+    margin: 0px;
+    padding: 0px;
+    list-style-type: decimal;
+}
+
+div#Warning ul li {
+    padding: 5px 2px;
+    padding-left: 25px;
+}
+
+div#Warning ul li.sucess {
+    background-color: rgb(80, 255, 80);
+}
+
+div#Warning ul li.error {
+    background-color: rgb(255, 80, 80);
+}

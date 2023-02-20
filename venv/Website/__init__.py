@@ -33,9 +33,9 @@ class web:
                         if language == lang:
                             try:
                                 if session['language']:
-                                    session['language'] = lang
+                                    session['language'] = language
                             except:
-                                return redirect(f'/{lang}/')
+                                return redirect(f'/{language}/')
                     return redirect('/en/')
             else:
                 return redirect('/en/')
