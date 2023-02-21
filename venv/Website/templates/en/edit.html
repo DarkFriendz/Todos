@@ -7,7 +7,7 @@
 {% endblock %}
 
 {% block content %}
-    <div id="addTask">
+    <div id="editTask">
         <form action="/en/execute/editTask/{{task[0]}}" method="POST">
             <input type="text" name="title" id="Title" min="3" value="{{task[1]}}" required>
             {% if task[3] != 'N' %}
@@ -25,9 +25,9 @@
             {% else %}
                 <input type="datetime-local" name="date" id="date" min="{{task[6].split(' ')[0]}} 00:00:00" value="{{task[5].split(' ')[0]}} 00:00:00">
             {% endif %}
-            <a href="/en/execute/remove/{{task[0]}}"><button type="button">Delet</button></a>
-            <a href="home"><button type="button">Back</button></a>
-            <button type="submit">Send</button>
+            <button type="submit" class="edit" id="Send">Send</button>
+            <a href="/en/execute/remove/{{task[0]}}"><button type="button" class="edit" id="Delet">Delet</button></a>
+            <a href="home"><button type="button" class="edit" id="Back">Back</button></a>
         </form>
     </div>
 {% endblock %}

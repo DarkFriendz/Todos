@@ -20,3 +20,13 @@ function language(x) {
         count = 0
     }
 }
+
+function done(element) {
+    if (element.checked != false) {
+        task = element.id.replace("done", "")
+        window.location.href = 'http://127.0.0.1:5000/en/execute/done/'+task
+    } else {
+        task = element.id.replace("done", "")
+        window.location.href = 'http://127.0.0.1:5000/en/execute/doneRemove/'+task
+    }
+}

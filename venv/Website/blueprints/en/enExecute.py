@@ -43,6 +43,28 @@ def edit(task=None):
         flash('Error loading page, please try again later!', 'error')
         return redirect('/en/home')
 
+@enExcute.route("/done/")
+@enExcute.route("/done/<task>")
+def done(task=None):
+    if task != None:
+        db.doneTask(task)
+        flash('Task successfully Completed!', 'sucess')
+        return redirect('/en/home')
+    else:
+        flash('Error loading page, please try again later!', 'error')
+        return redirect('/en/home')
+
+@enExcute.route("/doneRemove/")
+@enExcute.route("/doneRemove/<task>")
+def doneRemove(task=None):
+    if task != None:
+        db.doneRemoveTask(task)
+        flash('Task successfully descompleted!', 'warning')
+        return redirect('/en/home')
+    else:
+        flash('Error loading page, please try again later!', 'error')
+        return redirect('/en/home')
+
 @enExcute.route("/remove/")
 @enExcute.route("/remove/<task>")
 def remove(task=None):

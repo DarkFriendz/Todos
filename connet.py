@@ -85,6 +85,30 @@ class db:
             self.info['error'] = True
             return self.info
 
+    #Done Task
+    def doneTask(self, task):
+        try:
+            with sql.connect(config['Datebase']) as con:
+                cur = con.cursor()
+                cur.execute('''UPDATE todos SET done=? WHERE Id=?''', ('S', task))
+                self.info['error'] = False
+                con.commit()
+        except:
+            self.info['reason'] = 'Error Completing information, please try again later!'
+            self.info['error'] = True
+
+    #Done Remove Task
+    def doneRemoveTask(self, task):
+        try:
+            with sql.connect(config['Datebase']) as con:
+                cur = con.cursor()
+                cur.execute('''UPDATE todos SET done=? WHERE Id=?''', ('N', task))
+                self.info['error'] = False
+                con.commit()
+        except:
+            self.info['reason'] = 'Error Completing information, please try again later!'
+            self.info['error'] = True
+
     #Edit Task
     def editTask(self, task, request):
         try:

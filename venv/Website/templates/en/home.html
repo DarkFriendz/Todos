@@ -24,7 +24,7 @@
                 {% for task in tasks %}
                     {% if task[3] != 'N' %}
                         <tr id="line{{task[0]}}" class="Done">
-                            <td><input type="checkbox" name="done" id="done" checked></td>
+                            <td><input type="checkbox" name="done" id="done{{task[0]}}" onclick="done(done{{task[0]}})" checked></td>
                             <td><a href="editTask/{{task[0]}}">{{task[1]}}</a></td>
                             {% if task[2] == None %}
                                 <td>Vazio</td>
@@ -40,7 +40,7 @@
                         </tr>
                     {% else %}
                         <tr id="line{{task[0]}}">
-                            <td><input type="checkbox" name="done" id="done"></td>
+                            <td><input type="checkbox" name="done" id="done{{task[0]}}" onclick="done(done{{task[0]}})"></td>
                             <td><a href="editTask/{{task[0]}}">{{task[1]}}</a></td>
                             {% if task[2] == None %}
                                 <td>Vazio</td>
