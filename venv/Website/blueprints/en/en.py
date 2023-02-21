@@ -1,6 +1,12 @@
 #Assets
 from flask import Blueprint, redirect, render_template, flash, get_flashed_messages
 
+#Datebase
+from connet import db
+
+#Get Datebase
+db = db()
+
 #Blueprint
 en = Blueprint('english', __name__, url_prefix='/en/')
 
@@ -11,14 +17,22 @@ def index(page=None):
     if page != None:
         if page == 'home':
             flashs = list(enumerate(get_flashed_messages(with_categories=True)))
-            print(flashs)
+            return render_template('/en/home.html', flashs=flashs)
+        elif page == 'addTask':
+            flashs = list(enumerate(get_flashed_messages(with_categories=True)))
             return render_template('/en/home.html', flashs=flashs)
         elif page == 'teste':
-            
-            flash('error',  'error')
-            flash('Sucess',  'sucess')
-            flash('error',  'error')
+            db.teste('teste')
+            if db.info['error'] != False:
+                flash('Sevidor com problemas, tente novamente mais tarde!', 'error')
+            else:
+                flash('Enviado com Sucesso!', 'sucess')
             return redirect('/en/home')
         return redirect('/en/home')
     else:
         return redirect('/en/home')
+
+#Blueprint Execute
+from .enExecute import enExcute
+
+en.register_blueprint(enExcute)
