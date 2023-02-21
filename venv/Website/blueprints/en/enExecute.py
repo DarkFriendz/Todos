@@ -28,4 +28,17 @@ def index(action=None):
         flash('Error loading page, please try again later!', 'error')
         return redirect('/en/home')
     else:
+        flash('Error loading page, please try again later!', 'error')
+        return redirect('/en/home')
+
+@enExcute.route("/remove/")
+@enExcute.route("/remove/<task>")
+def remove(task=None):
+    print(task)
+    if task != None:
+        db.deletTask(task)
+        flash('Task successfully deleted!', 'sucess')
+        return redirect('/en/home')
+    else:
+        flash('Error loading page, please try again later!', 'error')
         return redirect('/en/home')

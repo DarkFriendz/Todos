@@ -20,7 +20,7 @@ class db:
             #cur.execute('''INSERT INTO todos (title, description, done, due_date) VALUES (?, ?, ?, ?)''', task_data)
             con.commit()
 
-    #teste
+    #Get Tasks
     def tasks(self):
         with sql.connect(config['Datebase']) as con:
             cur = con.cursor()
@@ -29,6 +29,7 @@ class db:
             print(self.info)
             return self.info
 
+    #Add Task
     def addTask(self, request):
         try:
             with sql.connect(config['Datebase']) as con:
@@ -59,8 +60,21 @@ class db:
                                 cur.execute('''INSERT INTO todos (title, description, done, due_date) VALUES (?, ?, ?, ?)''', (request.form['title'], None, 'N', None))
                         except:
                             cur.execute('''INSERT INTO todos (title, description, done, due_date) VALUES (?, ?, ?, ?)''', (request.form['title'], None, 'N', None))
+                self.info['error'] = False
                 con.commit()
         except:
             self.info['reason'] = 'Error saving information, please try again later!'
             self.info['error'] = True
 
+    #Delet Task
+    def deletTask(self, task):
+        print(task)
+        try:
+            with sql.connect(config['Datebase']) as con:
+                cur = con.cursor()
+                cur.execute('''DELETE FROM todos WHERE Id=?''', (task))
+                self.info['error'] = False
+                con.commit()
+        except:
+            self.info['reason'] = 'Error deleting information, please try again later!'
+            self.info['error'] = True
