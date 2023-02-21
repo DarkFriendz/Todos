@@ -17,7 +17,6 @@ def index(action=None):
         if request.method == 'POST':
             if action == "addTask":
                 db.addTask(request)
-                
                 if db.info['error'] != True:
                     flash('Task successfully saved!', 'sucess')
                     return redirect('/en/home')
@@ -31,10 +30,20 @@ def index(action=None):
         flash('Error loading page, please try again later!', 'error')
         return redirect('/en/home')
 
+@enExcute.route("/editTask/")
+@enExcute.route("/editTask/<task>", methods=["GET", "POST"])
+def edit(task=None):
+    if task != None:
+        db.editTask(task, request)
+        flash('Task successfully Edited!', 'sucess')
+        return redirect('/en/home')
+    else:
+        flash('Error loading page, please try again later!', 'error')
+        return redirect('/en/home')
+
 @enExcute.route("/remove/")
 @enExcute.route("/remove/<task>")
 def remove(task=None):
-    print(task)
     if task != None:
         db.deletTask(task)
         flash('Task successfully deleted!', 'sucess')

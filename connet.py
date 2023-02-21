@@ -26,7 +26,6 @@ class db:
             cur = con.cursor()
             cur.execute('''SELECT * FROM todos''')
             self.info['content'] = cur.fetchall()
-            print(self.info)
             return self.info
 
     #Add Task
@@ -61,14 +60,79 @@ class db:
                         except:
                             cur.execute('''INSERT INTO todos (title, description, done, due_date) VALUES (?, ?, ?, ?)''', (request.form['title'], None, 'N', None))
                 self.info['error'] = False
-                con.commit()
         except:
             self.info['reason'] = 'Error saving information, please try again later!'
             self.info['error'] = True
 
+    #Get Task
+    def getTask(self, task):
+        try:
+            with sql.connect(config['Datebase']) as con:
+                cur = con.cursor()
+                cur.execute('''SELECT * FROM todos''')
+                self.info['content'] = cur.fetchall()
+                for tasks in self.info['content']:
+                    if tasks[0] == int(task):
+                        self.info['content'] = tasks
+                        self.info['error'] = False
+                        return self.info
+                    else:
+                        self.info['reason'] = 'Error loading page, please try again later!'
+                        self.info['error'] = True
+                return self.info
+        except:
+            self.info['reason'] = 'Error loading page, please try again later!'
+            self.info['error'] = True
+            return self.info
+
+    #Edit Task
+    def editTask(self, task, request):
+        try:
+            with sql.connect(config['Datebase']) as con:
+                cur = con.cursor()
+                cur.execute('''SELECT * FROM todos''')
+                self.info['content'] = cur.fetchall()
+                for tasks in self.info['content']:
+                    if tasks[0] == int(task):
+                        if request.form['description'] != "":
+                            if request.form['date'] != "":
+                                try:
+                                    if request.form['done']:
+                                        cur.execute('''UPDATE todos SET title=?, description=?, done=?, due_date=? WHERE Id=?''', (request.form['title'], request.form['description'], 'S', request.form['date'].split('T')[0], tasks[0]))
+                                except:
+                                    cur.execute('''UPDATE todos SET title=?, description=?, done=?, due_date=? WHERE Id=?''', (request.form['title'], request.form['description'], 'N', request.form['date'].split('T')[0], tasks[0]))
+                            else:
+                                try:
+                                    if request.form['done']:
+                                        cur.execute('''UPDATE todos SET title=?, description=?, done=?, due_date=? WHERE Id=?''', (request.form['title'], request.form['description'], 'S', None, tasks[0]))
+                                except:
+                                    cur.execute('''UPDATE todos SET title=?, description=?, done=?, due_date=? WHERE Id=?''', (request.form['title'], request.form['description'], 'N', None, tasks[0]))
+                        else:
+                            if request.form['date'] != "":
+                                try:
+                                    if request.form['done']:
+                                        cur.execute('''UPDATE todos SET title=?, description=?, done=?, due_date=? WHERE Id=?''', (request.form['title'], None, 'S', request.form['date'].split('T')[0], tasks[0]))
+                                except:
+                                    cur.execute('''UPDATE todos SET title=?, description=?, done=?, due_date=? WHERE Id=?''', (request.form['title'], None, 'N', request.form['date'].split('T')[0], tasks[0]))
+                            else:
+                                try:
+                                    if request.form['done']:
+                                        cur.execute('''UPDATE todos SET title=?, description=?, done=?, due_date=? WHERE Id=?''', (request.form['title'], None, 'S', None, tasks[0]))
+                                except:
+                                    cur.execute('''UPDATE todos SET title=?, description=?, done=?, due_date=? WHERE Id=?''', (request.form['title'], None, 'N', None, tasks[0]))
+
+                        con.commit()
+                        self.info['error'] = False
+                        return self.info
+                    else:
+                        self.info['reason'] = 'Error loading page, please try again later!'
+                        self.info['error'] = True
+        except:
+            self.info['reason'] = 'Error Editing information, please try again later!'
+            self.info['error'] = True
+
     #Delet Task
     def deletTask(self, task):
-        print(task)
         try:
             with sql.connect(config['Datebase']) as con:
                 cur = con.cursor()

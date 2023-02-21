@@ -24,7 +24,7 @@
                 {% for task in tasks %}
                     <tr id="line{{task[0]}}">
                         <td>{{task[3]}}</td>
-                        <td>{{task[1]}}</td>
+                        <td><a href="editTask/{{task[0]}}">{{task[1]}}</a></td>
                         {% if task[2] == None %}
                             <td>Vazio</td>
                         {% else %}

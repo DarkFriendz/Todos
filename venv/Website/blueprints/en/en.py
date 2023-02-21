@@ -22,16 +22,27 @@ def index(page=None):
         elif page == 'addTask':
             flashs = list(enumerate(get_flashed_messages(with_categories=True)))
             return render_template('/en/addTask.html', flashs=flashs)
-        elif page == 'teste':
-            db.teste('teste')
-            if db.info['error'] != False:
-                flash('Error page not found, please try again later!', 'error')
-            else:
-                flash('Enviado com Sucesso!', 'sucess')
-            return redirect('/en/home')
+
         flash('Error page not found, please try again later!', 'error')
         return redirect('/en/home')
     else:
+        flash('Error page not found, please try again later!', 'error')
+        return redirect('/en/home')
+
+#Edit
+@en.route('/editTask/')
+@en.route('/editTask/<task>')
+def edit(task=None):
+    if task != None:
+        db.getTask(task)
+        if db.info['error'] != True:
+            flashs = list(enumerate(get_flashed_messages(with_categories=True)))
+            return render_template('/en/edit.html', flashs=flashs, task=db.info['content'])
+        else:
+            flash(f'{db.info["reason"]}', 'error')
+            return redirect('/en/home')
+    else:
+        flash('Error page not found, please try again later!', 'error')
         return redirect('/en/home')
 
 #Blueprint Execute
