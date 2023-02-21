@@ -16,8 +16,9 @@ en = Blueprint('english', __name__, url_prefix='/en/')
 def index(page=None):
     if page != None:
         if page == 'home':
+            db.tasks()
             flashs = list(enumerate(get_flashed_messages(with_categories=True)))
-            return render_template('/en/home.html', flashs=flashs)
+            return render_template('/en/home.html', flashs=flashs, tasks=db.info['content'])
         elif page == 'addTask':
             flashs = list(enumerate(get_flashed_messages(with_categories=True)))
             return render_template('/en/addTask.html', flashs=flashs)

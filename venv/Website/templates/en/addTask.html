@@ -8,7 +8,11 @@
 
 {% block content %}
     <div id="addTask">
-        <form action="execute/addTask">
+        <form action="execute/addTask" method="POST">
+            <input type="text" name="title" id="Title" min="3" required>
+            <input type="checkbox" name="done" id="done">
+            <textarea name="description" id="description"></textarea>
+            <input type="datetime-local" name="date" id="date">
             <a href="home"><button type="button">Back</button></a>
             <button type="submit">Send</button>
         </form>

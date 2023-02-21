@@ -20,13 +20,33 @@
                 <th>Created in</th>
                 <th>Action</th>
             </tr>
-            <tr>
-                <td>Vazio</td>
-                <td>Vazio</td>
-                <td>Vazio</td>
-                <td>Vazio</td>
-                <td>Vazio</td>
-            </tr>
+            {% if tasks %}
+                {% for task in tasks %}
+                    <tr id="line{{task[0]}}">
+                        <td>{{task[3]}}</td>
+                        <td>{{task[1]}}</td>
+                        {% if task[2] == None %}
+                            <td>Vazio</td>
+                        {% else %}
+                            <td>{{task[2]}}</td>
+                        {% endif %}
+                        {% if task[4] == None %}
+                            <td>Vazio</td>
+                        {% else %}
+                            <td>{{task[4]}}</td>
+                        {% endif %}
+                        <td>excluir</td>
+                    </tr>
+                {% endfor %}
+            {% else %}
+                <tr>
+                    <td>Vazio</td>
+                    <td>Vazio</td>
+                    <td>Vazio</td>
+                    <td>Vazio</td>
+                    <td>Vazio</td>
+                </tr>
+            {% endif %}
         </table>
     </div>
 {% endblock %}
