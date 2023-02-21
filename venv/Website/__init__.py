@@ -36,6 +36,7 @@ class web:
                                     session['language'] = language
                             except:
                                 return redirect(f'/{language}/')
+                    flash('Error page not found, please try again later!', 'error')
                     return redirect('/en/')
             else:
                 return redirect('/en/')

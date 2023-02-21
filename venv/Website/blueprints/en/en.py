@@ -20,14 +20,15 @@ def index(page=None):
             return render_template('/en/home.html', flashs=flashs)
         elif page == 'addTask':
             flashs = list(enumerate(get_flashed_messages(with_categories=True)))
-            return render_template('/en/home.html', flashs=flashs)
+            return render_template('/en/addTask.html', flashs=flashs)
         elif page == 'teste':
             db.teste('teste')
             if db.info['error'] != False:
-                flash('Sevidor com problemas, tente novamente mais tarde!', 'error')
+                flash('Error page not found, please try again later!', 'error')
             else:
                 flash('Enviado com Sucesso!', 'sucess')
             return redirect('/en/home')
+        flash('Error page not found, please try again later!', 'error')
         return redirect('/en/home')
     else:
         return redirect('/en/home')

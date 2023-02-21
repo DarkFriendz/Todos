@@ -14,6 +14,10 @@ enExcute = Blueprint('englishExecute', __name__, url_prefix='/execute')
 @enExcute.route("/<action>")
 def index(action=None):
     if action != None:
-        pass
+        if action == "addTask":
+            return "ola"
+
+        flash('Error loading page, please try again later!', 'error')
+        return redirect('/en/home')
     else:
         return redirect('/en/home')
