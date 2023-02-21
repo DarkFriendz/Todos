@@ -3,7 +3,7 @@
 {% block title %}Home{% endblock %}
 
 {% block styles %}
-    
+    <link rel="stylesheet" href="{{url_for('static', filename='css/light.css')}}">
 {% endblock %}
 
 {% block content %}
@@ -18,7 +18,7 @@
                 <th>Títle</th>
                 <th>Description</th>
                 <th>Created in</th>
-                <th>Action</th>
+                <th class="end">Action</th>
             </tr>
             {% if tasks %}
                 {% for task in tasks %}
@@ -35,7 +35,7 @@
                         {% else %}
                             <td>{{task[4]}}</td>
                         {% endif %}
-                        <td><a href="execute/remove/{{task[0]}}">Delet</a></td>
+                        <td class="end"><a href="execute/remove/{{task[0]}}">Delet</a></td>
                     </tr>
                 {% endfor %}
             {% else %}
@@ -44,7 +44,7 @@
                     <td>Vazio</td>
                     <td>Vazio</td>
                     <td>Vazio</td>
-                    <td>Vazio</td>
+                    <td class="end">Vazio</td>
                 </tr>
             {% endif %}
         </table>

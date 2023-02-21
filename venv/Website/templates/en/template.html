@@ -12,14 +12,13 @@
         <header>
             <ul>
                 <form action="execute/language" method="POST">
-                    <li>Home</li>
-                    <label for="conteinerLanguage">
-                        <span id="globeLanguage"></span>
-                        <select name="selectLanguage" id="selectLanguage">
-                            <option value="en">English</option>
-                            <option value="pt">Portuguese</option>
-                        </select>
-                    </label>
+                    <li><a href="/en/home">Home</a></li>
+                    <li>
+                        <ul id="languages">
+                            <li id="selectedLanguage"><button type="button" onclick="language(1)"><img src="{{url_for('static', filename='imgs/FlagEUA.png')}}" alt="EUA"></button></li>
+                            <li><button type="submit"><img src="{{url_for('static', filename='imgs/FlagBrazil.png')}}" alt="Brazil"></button></li>
+                        </ul>
+                    </li>
                 </form>
             </ul>
         </header>

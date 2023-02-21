@@ -4,39 +4,54 @@ body {
     background-color: rgb(230, 230, 230);
 }
 
+a {
+    color: rgb(0, 0, 0);
+    text-decoration: None;
+}
+
 header {
     top: 0px;
     position: fixed;
     width: 100%;
     height: 50px;
-    background-color: rgb(200, 0, 200); 
+    color: rgb(255, 255, 255);
+    background-color: rgb(3, 0, 200)
 }
 
 header ul {
     list-style-type: none;
 }
 
-header ul form li {
-    display: inline-flex;
+header ul form li a {
+    color: rgb(255, 255, 255);
 }
 
-header ul form label {
+header ul form li ul#languages {
+    top: 4px;
+    right: 50px;
     position: fixed;
-    top: 10px;
-    right: 30px;
 }
 
-header ul form label span {
-    width: 91px;
-    height: 30px;
-    background-color: rgb(200, 0, 200);
-    position: absolute;
-   
+header ul form li ul#languages li#selectedLanguage {
+    height: 33px;
+    display: list-item;
 }
 
-header ul form label select {
-    height: 30px;
-    position: absolute;
+header ul form li ul#languages li {
+    padding: 5px;
+    background-color: rgb(230, 230, 230);
+    display: none;
+}
+
+header ul form li ul#languages li button {
+    padding: 0px;
+    background: none;
+    border: none;
+}
+
+header ul form li ul#languages li button img {
+    width: 75px;
+    height: 33px;
 }
 
 div {
@@ -133,12 +148,59 @@ div#Warning ul li.error button:hover {
     color: rgb(200, 80, 80);
 }
 
+div div#all {
+    margin-top: 35px;
+}
+
+div div#all div#allMenu {
+    width: 84%;
+    margin: 10px auto;
+    margin-top: 25px;
+
+}
+
+div div#all table {
+    border-collapse: collapse;
+    width: 85%;
+    margin: 0px auto;
+    margin-bottom: 15px;
+}
+
+div div#all table th,
+div div#all table td {
+    padding: 8px;
+    text-align: center;
+    border-left: 1px solid rgb(0, 0, 0)
+}
+
+div div#all table th.end,
+div div#all table td.end {
+    border-right: 1px solid rgb(0, 0, 0)
+}
+
+div div#all table th {
+    background-color: rgb(50, 50, 50);
+    color: rgb(255, 255, 255);
+}
+
+div div#all table tr:nth-child(even) {
+    background-color: rgb(200, 200, 200);
+}
+  
+div div#all table tr:hover {
+    background-color: rgb(221, 221, 221);
+}
+
+div div#all table tr:last-child {
+    border-bottom: 1px solid rgb(0, 0, 0)
+}
+
 footer {
     width: 100%;
     bottom: 0px;
     position: fixed;
     color: rgb(255, 255, 255);
-    background-color: rgb(200, 0, 200); 
+    background-color: rgb(3, 0, 200); 
 }
 
 footer table {

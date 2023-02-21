@@ -23,6 +23,8 @@ def index(action=None):
                 else:
                     flash(f'{db.info["reason"]}', 'error')
                     return redirect('/en/home')
+            elif action == "language":
+                return redirect('/pt/')
 
         flash('Error loading page, please try again later!', 'error')
         return redirect('/en/home')
