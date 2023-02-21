@@ -159,6 +159,21 @@ div div#all div#allMenu {
 
 }
 
+div div#all div#allMenu button {
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    background-color: rgb(3, 0, 200);
+    border: 1px solid rgb(3, 0, 200);
+    border-radius: 8px;
+    padding: 5px 25px;
+}
+
+div div#all div#allMenu input {
+    padding: 5px 3px;
+    border-radius: 8px;
+    float: right;
+}
+
 div div#all table {
     border-collapse: collapse;
     width: 85%;
