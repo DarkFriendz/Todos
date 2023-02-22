@@ -1,22 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>{% block title %}Template{% endblock %}</title>
-        <link rel="stylesheet" href="{{url_for('static', filename='css/templateEn.css')}}">
+        <link rel="stylesheet" href="{{url_for('static', filename='css/templatePt.css')}}">
         {% block styles %}{% endblock %}
     </head>
     <body>
         <header>
             <ul>
                 <form action="execute/language" method="POST">
-                    <li><a href="/en/home">Home</a></li>
+                    <li><a href="/pt/home">Início</a></li>
                     <li>
                         <ul id="languages">
-                            <li id="selectedLanguage"><button type="button" onclick="language(1)"><img src="{{url_for('static', filename='imgs/FlagEUA.png')}}" alt="EUA"></button></li>
-                            <li><button type="submit"><img src="{{url_for('static', filename='imgs/FlagBrazil.png')}}" alt="Brazil"></button></li>
+                            <li id="selectedLanguage"><button type="button" onclick="language(1)"><img src="{{url_for('static', filename='imgs/FlagBrazil.png')}}" alt="Brazil"></button></li>
+                            <li><button type="submit"><img src="{{url_for('static', filename='imgs/FlagEUA.png')}}" alt="EUA"></button></li>
                         </ul>
                     </li>
                 </form>

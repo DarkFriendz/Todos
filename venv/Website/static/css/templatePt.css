@@ -1,0 +1,429 @@
+body {
+    margin: 0px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color: rgb(230, 230, 230);
+}
+
+a {
+    color: rgb(0, 0, 0);
+    text-decoration: None;
+}
+
+header {
+    top: 0px;
+    position: fixed;
+    width: 100%;
+    height: 50px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(3, 0, 200);
+    z-index: 9;
+}
+
+header ul {
+    list-style-type: none;
+}
+
+header ul form li a {
+    color: rgb(255, 255, 255);
+}
+
+header ul form li ul#languages {
+    top: 4px;
+    right: 50px;
+    position: fixed;
+}
+
+header ul form li ul#languages li#selectedLanguage {
+    height: 33px;
+    display: list-item;
+}
+
+header ul form li ul#languages li {
+    padding: 5px;
+    background-color: rgb(230, 230, 230);
+    display: none;
+}
+
+header ul form li ul#languages li button {
+    padding: 0px;
+    background: none;
+    border: none;
+}
+
+header ul form li ul#languages li button img {
+    width: 75px;
+    height: 33px;
+}
+
+div {
+    margin: 15px auto;
+    margin-top: 0px;
+    padding: 5px;
+    border: 1px solid rgb(0, 0, 0);
+}
+
+div#content {
+    margin: 30px 15px;
+    border: None;
+}
+
+div#content div {
+    margin: 15px 0px;
+    margin-bottom: 55px;
+}
+
+div#Warning {
+    margin-top: 50px;
+    padding: 0px;
+    border: none;
+}
+
+div#Warning ul {
+    margin: 0px;
+    padding: 0px;
+    list-style-type: decimal;
+}
+
+div#Warning ul li {
+    padding: 5px 2px;
+    padding-left: 25px;
+}
+
+div#Warning ul li.sucess {
+    background-color: rgb(80, 255, 80);
+}
+
+div#Warning ul li.error {
+    background-color: rgb(255, 80, 80);
+}
+
+div#Warning ul li.warning {
+    background-color: rgb(255, 200, 80);
+}
+
+div#Warning ul li button {
+    box-sizing: border-box;
+    position: relative;
+    display: block;
+    transform: scale(var(--ggs,1));
+    width: 22px;
+    height: 22px;
+    margin-right: 15px;
+    background: none;
+    border: 2px solid;
+    border-radius: 40px;
+    float: right;
+}
+
+div#Warning ul li button::after,
+div#Warning ul li button::before {
+    content: "";
+    display: block;
+    box-sizing: border-box;
+    position: absolute;
+    width: 12px;
+    height: 2px;
+    background: currentColor;
+    transform: rotate(45deg);
+    border-radius: 5px;
+    top: 8px;
+    left: 3px
+}
+
+div#Warning ul li button::after {
+    transform: rotate(-45deg)
+}
+
+div#Warning ul li.sucess button {
+    border-color: rgb(80, 230, 80);
+    color: rgb(80, 230, 80);
+}
+
+div#Warning ul li.sucess button:hover {
+    border-color: rgb(80, 200, 80);
+    color: rgb(80, 200, 80);
+}
+
+div#Warning ul li.error button {
+    border-color: rgb(230, 80, 80);
+    color: rgb(230, 80, 80);
+}
+
+div#Warning ul li.error button:hover {
+    border-color: rgb(200, 80, 80);
+    color: rgb(200, 80, 80);
+}
+
+div#Warning ul li.warning button {
+    border-color: rgb(0, 0, 0);
+    color: rgb(0, 0, 0);
+}
+
+div#Warning ul li.warning button:hover {
+    border-color: rgb(0, 0, 0);
+    color: rgb(0, 0, 0);
+}
+
+div div#all {
+    margin-top: 35px;
+}
+
+div div#all table::before {
+    content: "Todos";
+    font-size: 28px;
+    padding: 5px 15px;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 8px;
+    position: relative;
+    top: -95px;
+    z-index: 1;
+}
+
+div div#all div#allMenu {
+    width: 84%;
+    margin: 10px auto;
+    margin-top: 25px;
+
+}
+
+div div#all div#allMenu button {
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    background-color: rgb(3, 0, 200);
+    border: 1px solid rgb(3, 0, 200);
+    border-radius: 8px;
+    padding: 5px 25px;
+}
+
+div div#all div#allMenu select {
+    margin-right: 15px;
+    padding: 5px 3px;
+    border-radius: 8px;
+    float: right;
+}
+
+div div#all div#allMenu input {
+    padding: 5px 3px;
+    border-radius: 8px;
+    float: right;
+}
+
+div div#all div#allMenu input#SearchDate {
+    display: None;
+}
+
+div div#all table {
+    border-collapse: collapse;
+    width: 85%;
+    margin: 0px auto;
+    margin-bottom: 15px;
+}
+
+div div#all table th,
+div div#all table td {
+    padding: 8px;
+    text-align: center;
+    border-left: 1px solid rgb(0, 0, 0)
+}
+
+div div#all table th.end,
+div div#all table td.end {
+    border-right: 1px solid rgb(0, 0, 0)
+}
+
+div div#all table td a {
+    text-decoration: underline;
+    color: rgb(3, 0, 200);
+}
+
+div div#all table th {
+    background-color: rgb(50, 50, 50);
+    color: rgb(255, 255, 255);
+}
+
+div div#all table tr:nth-child(even) {
+    background-color: rgb(200, 200, 200);
+}
+  
+div div#all table tr:hover {
+    background-color: rgb(221, 221, 221);
+}
+
+div div#all table tr:last-child {
+    border-bottom: 1px solid rgb(0, 0, 0)
+}
+
+div div#addTask {
+    margin-top: 35px;
+    padding-top: 35px;
+}
+
+div div#addTask::before {
+    content: "Add Task";
+    font-size: 28px;
+    padding: 5px 15px;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 8px;
+    position: absolute;
+    top: 68px;
+    left: 35px;
+    z-index: 1;
+}
+
+div div#addTask input {
+    width: 75%;
+    display: inline-flex;
+}
+
+div div#addTask span {
+    float: right;
+}
+
+div div#addTask input#done {
+    width: 15px;
+    float: right;
+    border: 1px solid rgb(0, 0, 0);
+}
+
+div div#addTask textarea {
+    margin: 15px 0px;
+    max-width: 98%;
+    width: 98%;
+    min-width: 28%;
+    max-height: 180px;
+    height: 180px;
+    min-height: 50px;
+    height: 180px;
+    display: block;
+}
+
+div div#addTask input#date {
+    width: 25%;
+}
+
+div div#addTask button {
+    width: 25%;
+    border-radius: 8px;
+    float: right;
+}
+
+div div#addTask button#Back {
+    margin-left: 55px;
+    font-weight: bold;
+    background-color: rgb(255, 0, 0);
+    border: 2px solid rgb(255, 0, 0);
+    float: none;
+}
+
+div div#addTask button#Sand {
+    font-weight: bold;
+    background-color: rgb(0, 255, 0);
+    border: 2px solid rgb(0, 255, 0);
+}
+
+div div#addTask button#Back:hover,
+div div#addTask button#Sand:hover {
+  border-color: rgb(0, 0, 0);
+}
+
+div div#editTask {
+    margin-top: 35px;
+    padding-top: 35px;
+}
+
+div div#editTask::before {
+    content: "Edit Task";
+    font-size: 28px;
+    padding: 5px 15px;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 8px;
+    position: absolute;
+    top: 68px;
+    left: 35px;
+    z-index: 1;
+}
+
+div div#editTask input {
+    width: 75%;
+    display: inline-flex;
+}
+
+div div#editTask span {
+    float: right;
+}
+
+div div#editTask input#done {
+    width: 15px;
+    float: right;
+    border: 1px solid rgb(0, 0, 0);
+}
+
+div div#editTask textarea {
+    margin: 15px 0px;
+    max-width: 98%;
+    width: 98%;
+    min-width: 28%;
+    max-height: 180px;
+    height: 180px;
+    min-height: 50px;
+    height: 180px;
+    display: block;
+}
+
+div div#editTask input#date {
+    width: 25%;
+}
+
+div div#editTask button {
+    width: 25%;
+    border-radius: 8px;
+    float: right;
+}
+
+div div#editTask button.edit {
+    width: 15%;
+    margin: 0px 15px;
+}
+
+div div#editTask button#Back {
+    font-weight: bold;
+    background-color: rgb(255, 0, 0);
+    border: 2px solid rgb(255, 0, 0);
+}
+
+div div#editTask button#Delet {
+    font-weight: bold;
+    background-color: rgb(255, 200, 80);
+    border: 2px solid rgb(255, 200, 80);
+}
+
+div div#editTask button#Send {
+    font-weight: bold;
+    background-color: rgb(0, 255, 0);
+    border: 2px solid rgb(0, 255, 0);
+}
+
+div div#editTask button#Back:hover,
+div div#editTask button#Delet:hover,
+div div#editTask button#Send:hover {
+    border-color: rgb(0, 0, 0);
+}
+
+footer {
+    width: 100%;
+    bottom: 0px;
+    position: fixed;
+    color: rgb(255, 255, 255);
+    background-color: rgb(3, 0, 200); 
+}
+
+footer table {
+    margin: 5px auto;
+}
+
+footer table tr td {
+    padding: 5px;
+}
