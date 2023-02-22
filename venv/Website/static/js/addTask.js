@@ -6,5 +6,4 @@ const formattedDate = `${year}-${month}-${day} 00:00:00`;
 
 
 date = document.getElementById('date')
-date.value = formattedDate
 date.min = formattedDate
