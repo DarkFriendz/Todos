@@ -11,6 +11,14 @@
         <div id="allMenu">
             <a href="addTask"><button>+ Task</button></a>
             <input type="search" name="Search" id="Search">
+            <input type="datetime-local" name="SearchDate" id="SearchDate">
+            <select name="filter" id="filter">
+                <option value="0">Title</option>
+                <option value="1">Done</option>
+                <option value="2">Not Done</option>
+                <option value="3">Description</option>
+                <option value="4">Created in</option>
+            </select>
         </div>
         <table>
             <tr>
@@ -69,4 +77,6 @@
     </div>
 {% endblock %}
 
-{% block scripts %}{% endblock %}
+{% block scripts %}
+<script src="{{url_for('static', filename='js/filter.js')}}"></script>
+{% endblock %}

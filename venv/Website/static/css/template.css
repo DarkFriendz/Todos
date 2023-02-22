@@ -195,10 +195,21 @@ div div#all div#allMenu button {
     padding: 5px 25px;
 }
 
+div div#all div#allMenu select {
+    margin-right: 15px;
+    padding: 5px 3px;
+    border-radius: 8px;
+    float: right;
+}
+
 div div#all div#allMenu input {
     padding: 5px 3px;
     border-radius: 8px;
     float: right;
+}
+
+div div#all div#allMenu input#SearchDate {
+    display: None;
 }
 
 div div#all table {
