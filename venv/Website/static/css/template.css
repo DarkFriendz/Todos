@@ -1,6 +1,6 @@
 body {
     margin: 0px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     background-color: rgb(230, 230, 230);
 }
 
@@ -68,7 +68,8 @@ div#content {
 }
 
 div#content div {
-    margin-top: 15px;
+    margin: 15px 0px;
+    margin-bottom: 55px;
 }
 
 div#Warning {
