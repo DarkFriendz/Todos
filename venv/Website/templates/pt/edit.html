@@ -1,0 +1,35 @@
+{% extends 'pt/template.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block styles %}
+    
+{% endblock %}
+
+{% block content %}
+    <div id="editTask">
+        <form action="/pt/execute/editTask/{{task[0]}}" method="POST">
+            <input type="text" name="title" id="Title" min="3" value="{{task[1]}}" required>
+            {% if task[3] != 'N' %}
+                <input type="checkbox" name="done" id="done" checked>
+            {% else %}
+                <input type="checkbox" name="done" id="done">
+            {% endif %}
+            {% if task[2] != None %}
+                <textarea name="description" id="description">{{task[2]}}</textarea>
+            {% else %}
+                <textarea name="description" id="description", placeholder="Vazio"></textarea>
+            {% endif %}
+            {% if task[4] != None %}
+                <input type="datetime-local" name="date" id="date" min="{{task[6].split(' ')[0]}} 00:00:00" value="{{task[6].split(' ')[0]}} 00:00:00">
+            {% else %}
+                <input type="datetime-local" name="date" id="date" min="{{task[6].split(' ')[0]}} 00:00:00" value="{{task[5].split(' ')[0]}} 00:00:00">
+            {% endif %}
+            <button type="submit" class="edit" id="Send">Enviar</button>
+            <a href="/pt/execute/remove/{{task[0]}}"><button type="button" class="edit" id="Delet">Deletar</button></a>
+            <a href="home"><button type="button" class="edit" id="Back">Voltar</button></a>
+        </form>
+    </div>
+{% endblock %}
+
+{% block scripts %}{% endblock %}

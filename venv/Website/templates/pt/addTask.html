@@ -1,0 +1,25 @@
+{% extends 'pt/template.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block styles %}
+    
+{% endblock %}
+
+{% block content %}
+    <div id="addTask">
+        <form action="execute/addTask" method="POST">
+            <input type="text" name="title" id="title" min="3" placeholder="Título" required>
+            <input type="checkbox" name="done" id="done">
+            <span>Feito</span>
+            <textarea name="description" id="description" placeholder="Descrição" value=""></textarea>
+            <input type="datetime-local" name="date" id="date">
+            <a href="home"><button type="button" id="Back">Voltar</button></a>
+            <button type="submit" id="Sand">Enviar</button>
+        </form>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    <script src="{{url_for('static', filename='js/addTask.js')}}"></script>
+{% endblock %}

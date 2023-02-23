@@ -29,10 +29,31 @@ def index(page=None):
             return render_template('/pt/home.html', flashs=flashs, tasks=tasks)
         elif page == 'addTask':
             flashs = list(enumerate(get_flashed_messages(with_categories=True)))
-            return render_template('/en/addTask.html', flashs=flashs)
+            return render_template('/pt/addTask.html', flashs=flashs)
 
-        flash('Erro página não encontrada, tente novamente mais tarde!', 'error')
+        flash('Erro áo carregar a página, tente novamente mais tarde!', 'error')
         return redirect('/pt/home')
     else:
-        flash('Erro página não encontrada, tente novamente mais tarde!', 'error')
+        flash('Erro áo carregar a página, tente novamente mais tarde!', 'error')
         return redirect('/pt/home')
+    
+#Edit
+@pt.route('/editTask/')
+@pt.route('/editTask/<task>')
+def edit(task=None):
+    if task != None:
+        db.getTask(task)
+        if db.info['error'] != True:
+            flashs = list(enumerate(get_flashed_messages(with_categories=True)))
+            return render_template('/pt/edit.html', flashs=flashs, task=db.info['content'])
+        else:
+            flash(f'{db.info["reason"]}', 'error')
+            return redirect('/pt/home')
+    else:
+        flash('Erro áo carregar a página, tente novamente mais tarde!', 'error')
+        return redirect('/pt/home')
+
+#Blueprint Execute
+from .ptExecute import ptExecute
+
+pt.register_blueprint(ptExecute)

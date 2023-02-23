@@ -260,7 +260,7 @@ div div#addTask {
 }
 
 div div#addTask::before {
-    content: "Add Task";
+    content: "Adicionar Tarefa";
     font-size: 28px;
     padding: 5px 15px;
     background-color: rgb(255, 255, 255);
@@ -334,7 +334,7 @@ div div#editTask {
 }
 
 div div#editTask::before {
-    content: "Edit Task";
+    content: "Editar Tarefa";
     font-size: 28px;
     padding: 5px 15px;
     background-color: rgb(255, 255, 255);
