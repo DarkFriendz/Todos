@@ -12,15 +12,45 @@
     {% endif %}
 {% endblock %}
 
-{% block styles %}{% endblock %}
+{% block styles %}
+    <link rel="stylesheet" href="{{url_for('static', filename='css/template.css')}}">
+{% endblock %}
 
 {% block content %}
     {% if session['language'] == 'en' %}
-        
+        <div id="task">
+            <h1 id="tableTitle">Task</h1>
+            <div id="menu">
+                <ul>
+                    <li><button>+ Task</button></li>
+                    <li id="inputSearch"><input type="search" name="search" id="search" placeholder="Search"></li>
+                </ul>
+            </div>
+            <table>
+                <tr>
+                    <th>Done</th>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Created in</th>
+                    <th>Actions</th>
+                </tr>
+                <tr>
+                    <td>Null</td>
+                    <td>Null</td>
+                    <td>Null</td>
+                    <td>Null</td>
+                    <td>Null</td>
+                </tr>
+            </table>
+        </div>
     {% elif session['language'] == 'pt' %}
-        
+        <div id="task">
+
+        </div>
     {% elif session['language'] == 'es' %}
-        
+        <div id="task">
+
+        </div>
     {% else %}
         <h1>Server crashed, please try again later!</h1>
     {% endif %}

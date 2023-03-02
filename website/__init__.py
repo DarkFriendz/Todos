@@ -35,11 +35,13 @@ class web():
             if lang != None:
                 if page != None:
                     if page == 'home':
+                        session['language'] = lang
                         return render_template('home.html')
                 else:
+                    session['language'] = lang
                     return redirect(f'/{lang}/home')
 
-            session['language'] = 'en' 
+            session['language'] = 'en'
             return redirect(f'/en/')
         
         #Run

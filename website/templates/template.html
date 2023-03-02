@@ -9,6 +9,50 @@
             {% block styles %}{% endblock %}
         </head>
         <body>
+            <header>
+                <ul>
+                    {% if session['language'] == 'en' %}
+                        <li>Home</li>
+                        <li id="buttonAcount" class="right"><button>Profile</button></li>
+                        <li id="selectLanguage" class="right">
+                            <form action="execute/language" method="post">
+                                <select name="language" id="language">
+                                    <option value="en">English</option>
+                                    <option value="pt">Portuguese</option>
+                                    <option value="es">Spanish</option>
+                                </select>
+                            </form>
+                        </li>
+                    {% elif session['language'] == 'pt' %}
+                        <li>Início</li>
+                        <li class="right"><button>Profile</button></li>
+                        <li class="right">
+                            <form action="execute/language" method="post">
+                                <select name="language" id="language">
+                                    <option value="pt">Portugues</option>
+                                    <option value="en">Inglês</option>
+                                    <option value="es">Espanhol</option>
+                                </select>
+                            </form>
+                        </li>
+                    {% elif session['language'] == 'es' %}
+                        <li>Comienzo</li>
+                        <li class="right"><button>Profile</button></li>
+                        <li class="right">
+                            <form action="execute/language" method="post">
+                                <select name="language" id="language">
+                                    <option value="es">Español</option>
+                                    <option value="en">Inglés</option>
+                                    <option value="pt">Portugués</option>
+                                </select>
+                            </form>
+                        </li>
+                    {% else %}
+                        <h1>Error</h1>
+                    {% endif %}
+                </ul>
+            </header>
+            <div id="header"></div>
             {% block content %}{% endblock %}
 
             {% block scripts %}{% endblock %}

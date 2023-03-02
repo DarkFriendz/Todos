@@ -1,0 +1,155 @@
+body {
+    margin: 0px;
+    font-size: 18px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: rgb(230, 230, 230);
+}
+
+header {
+    width: 100%;
+    height: 60px;
+    background-color: rgb(0, 0, 255);
+    position: fixed;
+    top: 0px;
+    left: 0px;
+}
+
+div#header {
+    width: 100%;
+    height: 25px;
+    margin-bottom: 35px;
+    background: none;
+    border: none;
+    box-shadow: 0px 6px 6px rgb(0, 0, 0, 0.3);
+}
+
+header ul {
+    margin: 0px;
+    padding: 0px;
+    list-style-type: none;
+}
+
+header ul li {
+    display: inline-flex;
+    padding: 20px;
+}
+
+header ul li#selectLanguage {
+    padding: 15px;
+}
+
+header ul li#selectLanguage select {
+    padding: 6px;
+}
+
+header ul li#buttonAcount {
+    padding: 0px;
+}
+
+header ul li#buttonAcount button {
+    padding: 22px;
+    background-color: rgb(0, 0, 255);
+    border: none;
+}
+
+header ul li.right {
+    float: right;
+}
+
+div {
+    width: 75%;
+    margin: 15px auto;
+    padding: 10px 5px;
+    box-shadow: 0px 0px 6px 6px rgb(0, 0, 0, 0.2);
+}
+
+div#task {
+    background-color: rgb(25, 25, 255);
+}
+
+div#task h1#tableTitle {
+    padding: 5px 15px;
+    font-size: 28px;
+    background-color: rgb(230, 230, 230);
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 8px;
+    position: absolute;
+    margin-top: -35px;
+    margin-left: 15px;
+}
+
+div#task div#menu {
+    width: 95%;
+    margin-top: 35px;
+    background-color: rgb(230, 230, 230);
+    border: 2px solid rgb(0, 0, 0);
+    box-shadow: none;
+}
+
+div#task div#menu ul {
+    margin: 0px;
+    padding: 0px;
+    list-style-type: none;
+}
+
+div#task div#menu ul li {
+    margin: 0px 15px;
+    padding: 0px;
+    display: inline-block;
+}
+
+div#task div#menu ul li button {
+    padding: 5px 10px;
+    font-weight: bold;
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 8px;
+}
+
+div#task div#menu ul li#inputSearch {
+    width: 180px;
+    float: right;
+}
+
+div#task div#menu ul li input {
+    width: 180px;
+    padding: 5px 10px;
+    font-weight: bold;
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 8px;
+}
+
+div#task table {
+    width: 98%;
+    margin: 0px auto;
+    text-align: center;
+    background-color: rgb(230, 230, 230);
+    border: 2px solid rgb(0, 0, 0);
+    border-collapse: collapse;
+}
+
+div#task table tr:first-child {
+    border: none;
+}
+
+div#task table tr {
+    border-bottom: 2px solid rgb(0, 0, 0);
+}
+
+div#task table tr th,
+div#task table tr td {
+    padding: 5px 15px;
+}
+
+div#task table tr td:nth-child(2n) {
+    background-color: rgb(200, 200, 200);
+}
+
+div#task table tr td:hover {
+    background-color: rgb(180, 180, 180);
+}
+
+div#task table tr:first-child th {
+    color: rgb(75, 75, 75);
+    background-color: rgb(200, 200, 200);
+    border-bottom: 2px solid rgb(75, 75, 75);
+}
