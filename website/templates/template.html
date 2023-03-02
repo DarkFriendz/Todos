@@ -12,7 +12,7 @@
             <header>
                 <ul>
                     {% if session['language'] == 'en' %}
-                        <li>Home</li>
+                        <li><a href="/en/home">Home</a></li>
                         <li id="buttonAcount" class="right"><button>Profile</button></li>
                         <li id="selectLanguage" class="right">
                             <form action="execute/language" method="post">
@@ -24,8 +24,8 @@
                             </form>
                         </li>
                     {% elif session['language'] == 'pt' %}
-                        <li>Início</li>
-                        <li class="right"><button>Profile</button></li>
+                        <li><a href="/pt/home">Início</a></li>
+                        <li id="buttonAcount" class="right"><button>Profile</button></li>
                         <li class="right">
                             <form action="execute/language" method="post">
                                 <select name="language" id="language">
@@ -36,8 +36,8 @@
                             </form>
                         </li>
                     {% elif session['language'] == 'es' %}
-                        <li>Comienzo</li>
-                        <li class="right"><button>Profile</button></li>
+                        <li><a href="/es/home">Comienzo</a></li>
+                        <li id="buttonAcount" class="right"><button>Profile</button></li>
                         <li class="right">
                             <form action="execute/language" method="post">
                                 <select name="language" id="language">

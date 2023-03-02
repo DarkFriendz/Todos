@@ -30,8 +30,19 @@ header ul {
 }
 
 header ul li {
+    color: rgb(255, 255, 255);
     display: inline-flex;
     padding: 20px;
+}
+
+header ul li a {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+}
+
+header ul li a:hover {
+    color: rgb(180, 180, 180);
 }
 
 header ul li#selectLanguage {
@@ -50,6 +61,7 @@ header ul li#buttonAcount button {
     padding: 22px;
     background-color: rgb(0, 0, 255);
     border: none;
+    cursor: pointer;
 }
 
 header ul li.right {
@@ -103,6 +115,7 @@ div#task div#menu ul li button {
     font-weight: bold;
     border: 2px solid rgb(0, 0, 0);
     border-radius: 8px;
+    cursor: pointer;
 }
 
 div#task div#menu ul li#inputSearch {
