@@ -1,5 +1,6 @@
 #Assets
 from flask import Flask, redirect, render_template, session
+from connect import db
 
 #Class Website
 class web():
@@ -13,6 +14,9 @@ class web():
 
         #Language Website
         self.languages = ['en', 'pt', 'es']
+
+        #Datebase
+        self.db = db()
 
     #Run Website
     def run(self, debug:bool=False):
@@ -37,6 +41,9 @@ class web():
                     if page == 'home':
                         session['language'] = lang
                         return render_template('home.html')
+                    if page == 'addTask':
+                        session['language'] = lang
+                        return "addTask"
                 else:
                     session['language'] = lang
                     return redirect(f'/{lang}/home')
