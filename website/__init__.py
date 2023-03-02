@@ -16,7 +16,7 @@ class web():
         self.languages = ['en', 'pt', 'es']
 
         #Datebase
-        self.db = db()
+        self.db = db(config['Database'])
 
     #Run Website
     def run(self, debug:bool=False):
