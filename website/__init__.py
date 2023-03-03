@@ -44,7 +44,7 @@ class web():
                         return render_template('home.html', rows=self.db.result['info'])
                     if page == 'addTask':
                         session['language'] = lang
-                        return "addTask"
+                        return render_template('task.html')
                 else:
                     session['language'] = lang
                     return redirect(f'/{lang}/home')

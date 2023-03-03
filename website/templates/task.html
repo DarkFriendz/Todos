@@ -1,0 +1,38 @@
+{% extends 'template.html' %}
+
+{% block title %}
+    {% if session['language'] == 'en' %}
+        Add Task
+    {% elif session['language'] == 'pt' %}
+        Adicionar Tarefa
+    {% elif session['language'] == 'es' %}
+        Agregar tarea
+    {% else %}
+        Error
+    {% endif %}
+{% endblock %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{{url_for('static', filename='css/template.css')}}">
+{% endblock %}
+
+{% block content %}
+    {% if session['language'] == 'en' %}
+        <div id="addTask">
+            
+        </div>
+    {% elif session['language'] == 'pt' %}
+    {% elif session['language'] == 'es' %}
+    {% else %}
+        <h1>Language not found try we have languages:</h1>
+        <ul>
+            <li><a href="/en/">English</a></li>
+            <li><a href="/pt/">Portuguese</a></li>
+            <li><a href="/es/">Spanish</a></li>
+        </ul>
+    {% endif %}
+{% endblock %}
+
+{% block scripts %}
+
+{% endblock %}
