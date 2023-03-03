@@ -39,8 +39,9 @@ class web():
             if lang != None:
                 if page != None:
                     if page == 'home':
+                        self.db.getAll(session['language'])
                         session['language'] = lang
-                        return render_template('home.html')
+                        return render_template('home.html', rows=self.db.result['info'])
                     if page == 'addTask':
                         session['language'] = lang
                         return "addTask"

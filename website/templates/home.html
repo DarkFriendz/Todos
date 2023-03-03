@@ -17,86 +17,172 @@
 {% endblock %}
 
 {% block content %}
-    {% if session['language'] == 'en' %}
-        <div id="task">
-            <h1 id="tableTitle">All</h1>
-            <div id="menu">
-                <ul>
-                    <li><a href="/en/addTask"><button>+ Task</button></a></li>
-                    <li id="inputSearch"><input type="search" name="search" id="search" placeholder="Search"></li>
-                </ul>
+    {% if rows %}
+        {% if session['language'] == 'en' %}
+            <div id="task">
+                <h1 id="tableTitle">All</h1>
+                <div id="menu">
+                    <ul>
+                        <li><a href="/en/addTask"><button>+ Task</button></a></li>
+                        <li id="inputSearch"><input type="search" name="search" id="search" placeholder="Search"></li>
+                    </ul>
+                </div>
+                <table>
+                    <tr>
+                        <th>Done</th>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>Created in</th>
+                        <th>Actions</th>
+                    </tr>
+                    {% for row in rows %}
+                        <tr>
+                            <td>{{row['done']}}</td>
+                            <td>{{row['title']}}</td>
+                            <td>{{row['description']}}</td>
+                            <td>{{row['created_at']}}</td>
+                            <td>Delet</td>
+                        </tr>
+                    {% endfor %}
+                </table>
             </div>
-            <table>
-                <tr>
-                    <th>Done</th>
-                    <th>Title</th>
-                    <th>Description</th>
-                    <th>Created in</th>
-                    <th>Actions</th>
-                </tr>
-                <tr>
-                    <td>Null</td>
-                    <td>Null</td>
-                    <td>Null</td>
-                    <td>Null</td>
-                    <td>Null</td>
-                </tr>
-            </table>
-        </div>
-    {% elif session['language'] == 'pt' %}
-        <div id="task">
-            <h1 id="tableTitle">Todo</h1>
-            <div id="menu">
-                <ul>
-                    <li><button>+ Tarefa</button></li>
-                    <li id="inputSearch"><input type="search" name="search" id="search" placeholder="Pesquisar"></li>
-                </ul>
+        {% elif session['language'] == 'pt' %}
+            <div id="task">
+                <h1 id="tableTitle">Todo</h1>
+                <div id="menu">
+                    <ul>
+                        <li><button>+ Tarefa</button></li>
+                        <li id="inputSearch"><input type="search" name="search" id="search" placeholder="Pesquisar"></li>
+                    </ul>
+                </div>
+                <table>
+                    <tr>
+                        <th>Feito</th>
+                        <th>Título</th>
+                        <th>Descrição</th>
+                        <th>Criado em</th>
+                        <th>Ações</th>
+                    </tr>
+                    <tr>
+                        <td>Vazio</td>
+                        <td>Vazio</td>
+                        <td>Vazio</td>
+                        <td>Vazio</td>
+                        <td>Vazio</td>
+                    </tr>
+                </table>
             </div>
-            <table>
-                <tr>
-                    <th>Feito</th>
-                    <th>Título</th>
-                    <th>Descrição</th>
-                    <th>Criado em</th>
-                    <th>Ações</th>
-                </tr>
-                <tr>
-                    <td>Vazio</td>
-                    <td>Vazio</td>
-                    <td>Vazio</td>
-                    <td>Vazio</td>
-                    <td>Vazio</td>
-                </tr>
-            </table>
-        </div>
-    {% elif session['language'] == 'es' %}
-        <div id="task">
-            <h1 id="tableTitle">Todo</h1>
-            <div id="menu">
-                <ul>
-                    <li><button>+ Tarea</button></li>
-                    <li id="inputSearch"><input type="search" name="search" id="search" placeholder="Buscar"></li>
-                </ul>
+        {% elif session['language'] == 'es' %}
+            <div id="task">
+                <h1 id="tableTitle">Todo</h1>
+                <div id="menu">
+                    <ul>
+                        <li><button>+ Tarea</button></li>
+                        <li id="inputSearch"><input type="search" name="search" id="search" placeholder="Buscar"></li>
+                    </ul>
+                </div>
+                <table>
+                    <tr>
+                        <th>Hecho</th>
+                        <th>Título</th>
+                        <th>Descripción</th>
+                        <th>Creado en</th>
+                        <th>Acciones</th>
+                    </tr>
+                    <tr>
+                        <td>Nulo</td>
+                        <td>Nulo</td>
+                        <td>Nulo</td>
+                        <td>Nulo</td>
+                        <td>Nulo</td>
+                    </tr>
+                </table>
             </div>
-            <table>
-                <tr>
-                    <th>Hecho</th>
-                    <th>Título</th>
-                    <th>Descripción</th>
-                    <th>Creado en</th>
-                    <th>Acciones</th>
-                </tr>
-                <tr>
-                    <td>Nulo</td>
-                    <td>Nulo</td>
-                    <td>Nulo</td>
-                    <td>Nulo</td>
-                    <td>Nulo</td>
-                </tr>
-            </table>
-        </div>
+        {% else %}
+            <h1>Server crashed, please try again later!</h1>
+        {% endif %}
     {% else %}
-        <h1>Server crashed, please try again later!</h1>
+        {% if session['language'] == 'en' %}
+            <div id="task">
+                <h1 id="tableTitle">All</h1>
+                <div id="menu">
+                    <ul>
+                        <li><a href="/en/addTask"><button>+ Task</button></a></li>
+                        <li id="inputSearch"><input type="search" name="search" id="search" placeholder="Search"></li>
+                    </ul>
+                </div>
+                <table>
+                    <tr>
+                        <th>Done</th>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>Created in</th>
+                        <th>Actions</th>
+                    </tr>
+                    <tr>
+                        <td>Null</td>
+                        <td>Null</td>
+                        <td>Null</td>
+                        <td>Null</td>
+                        <td>Null</td>
+                    </tr>
+                </table>
+            </div>
+        {% elif session['language'] == 'pt' %}
+            <div id="task">
+                <h1 id="tableTitle">Todo</h1>
+                <div id="menu">
+                    <ul>
+                        <li><button>+ Tarefa</button></li>
+                        <li id="inputSearch"><input type="search" name="search" id="search" placeholder="Pesquisar"></li>
+                    </ul>
+                </div>
+                <table>
+                    <tr>
+                        <th>Feito</th>
+                        <th>Título</th>
+                        <th>Descrição</th>
+                        <th>Criado em</th>
+                        <th>Ações</th>
+                    </tr>
+                    <tr>
+                        <td>Vazio</td>
+                        <td>Vazio</td>
+                        <td>Vazio</td>
+                        <td>Vazio</td>
+                        <td>Vazio</td>
+                    </tr>
+                </table>
+            </div>
+        {% elif session['language'] == 'es' %}
+            <div id="task">
+                <h1 id="tableTitle">Todo</h1>
+                <div id="menu">
+                    <ul>
+                        <li><button>+ Tarea</button></li>
+                        <li id="inputSearch"><input type="search" name="search" id="search" placeholder="Buscar"></li>
+                    </ul>
+                </div>
+                <table>
+                    <tr>
+                        <th>Hecho</th>
+                        <th>Título</th>
+                        <th>Descripción</th>
+                        <th>Creado en</th>
+                        <th>Acciones</th>
+                    </tr>
+                    <tr>
+                        <td>Nulo</td>
+                        <td>Nulo</td>
+                        <td>Nulo</td>
+                        <td>Nulo</td>
+                        <td>Nulo</td>
+                    </tr>
+                </table>
+            </div>
+        {% else %}
+            <h1>Server crashed, please try again later!</h1>
+        {% endif %}
     {% endif %}
 {% endblock %}
 

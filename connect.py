@@ -7,15 +7,43 @@ class db():
     #Config Datebase
     def __init__(self, directory:str):
         #Directory
-        self.conn = sqlite3.connect(directory)
-        self.cursor = self.conn.cursor()
-        self.cursor.execute('''CREATE TABLE IF NOT EXISTS todo (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, title TEXT NOT NULL, description TEXT, done VARCHAR(1) NOT NULL DEFAULT 'n', due_date DATE, created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP, updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP);''')
+        self.directory = directory
 
-    def getAll(self):
-        self.cursor.execute('SELECT * FROM todo')
-        print(self.cursor.fetchall())
+        #Result
+        self.result = {
+            'info': None,
+            'error': False
+        }
 
-    def close(self):
-        '''Close the Database connection.'''
-        self.cursor.close()
-        self.conn.close()
+        #Table
+        conn = sqlite3.connect(directory)
+        cursor = conn.cursor()
+        cursor.execute('''CREATE TABLE IF NOT EXISTS todo (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, title TEXT NOT NULL, description TEXT, done VARCHAR(1) NOT NULL DEFAULT 'n', due_date DATE, created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP, updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP);''')
+        #cursor.execute('''INSERT INTO todo (title, description, due_date, created_at, updated_at) VALUES ('ola', 'ola', '2023-03-30', '2023-03-30 00:00:00', '2023-03-30 00:00:00')''')
+        conn.commit()
+        conn.close()
+
+    #Get Table
+    def getAll(self, lang):
+        try:
+            with sqlite3.connect(self.directory) as conn:
+                cur = conn.cursor()
+                cur.execute('''SELECT * FROM todo''')
+                data = []
+                for row in cur.fetchall():
+                    rows = {
+                        'id': row[0],
+                        'title': row[1],
+                        'description': row[2],
+                        'done': row[3],
+                        'due_date': row[4],
+                        'created_at': row[5],
+                        'updated_at': row[6]
+                    }
+                    data.append(rows)
+                conn.close()
+                self.result['info'] = data
+                return self.result
+        except:
+            if lang == 'en':
+                print('error')
