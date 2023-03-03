@@ -36,13 +36,33 @@
                         <th>Actions</th>
                     </tr>
                     {% for row in rows %}
-                        <tr>
-                            <td>{{row['done']}}</td>
-                            <td>{{row['title']}}</td>
-                            <td>{{row['description']}}</td>
-                            <td>{{row['created_at']}}</td>
-                            <td>Delet</td>
-                        </tr>
+                        {% if row['done'] != 'N' %}
+                            <tr class="Done">
+                                <td id="Done"><input type="checkbox" id="check" checked><a href="execute/notdone/{{row['id']}}"></a></td>
+                                <td><a href="execute/edit/{{row['id']}}">{{row['title']}}</a></td>
+                                <td>{{row['description']}}</td>
+                                <td>{{row['created_at']}}</td>
+                                <td><a href="execute/delet/{{row['id']}}">Delet</a></td>
+                            </tr>
+                        {% else %}
+                            {% if row['expired'] != True %}
+                                <tr class="Expired">
+                                    <td id="Done"><input type="checkbox" id="check"><a href="execute/done/{{row['id']}}"></a></td>
+                                    <td><a href="execute/edit/{{row['id']}}">{{row['title']}}</a></td>
+                                    <td>{{row['description']}}</td>
+                                    <td>{{row['created_at']}}</td>
+                                    <td><a href="execute/delet/{{row['id']}}">Delet</a></td>
+                                </tr>
+                            {% else %}
+                                <tr>
+                                    <td id="Done"><input type="checkbox" id="check"><a href="/execute/done/{{row['id']}}"></a></td>
+                                    <td><a href="execute/edit/{{row['id']}}">{{row['title']}}</a></td>
+                                    <td>{{row['description']}}</td>
+                                    <td>{{row['created_at']}}</td>
+                                    <td><a href="execute/delet/{{row['id']}}">Delet</a></td>
+                                </tr>
+                            {% endif %}
+                        {% endif %}
                     {% endfor %}
                 </table>
             </div>
@@ -63,13 +83,35 @@
                         <th>Criado em</th>
                         <th>Ações</th>
                     </tr>
-                    <tr>
-                        <td>Vazio</td>
-                        <td>Vazio</td>
-                        <td>Vazio</td>
-                        <td>Vazio</td>
-                        <td>Vazio</td>
-                    </tr>
+                    {% for row in rows %}
+                        {% if row['done'] != 'N' %}
+                            <tr class="Done">
+                                <td id="Done"><input type="checkbox" id="check" checked><a href="execute/notdone/{{row['id']}}"></a></td>
+                                <td><a href="execute/edit/{{row['id']}}">{{row['title']}}</a></td>
+                                <td>{{row['description']}}</td>
+                                <td>{{row['created_at']}}</td>
+                                <td><a href="execute/delet/{{row['id']}}">Delet</a></td>
+                            </tr>
+                        {% else %}
+                            {% if row['expired'] != True %}
+                                <tr class="Expired">
+                                    <td id="Done"><input type="checkbox" id="check"><a href="execute/done/{{row['id']}}"></a></td>
+                                    <td><a href="execute/edit/{{row['id']}}">{{row['title']}}</a></td>
+                                    <td>{{row['description']}}</td>
+                                    <td>{{row['created_at']}}</td>
+                                    <td><a href="execute/delet/{{row['id']}}">Delet</a></td>
+                                </tr>
+                            {% else %}
+                                <tr>
+                                    <td id="Done"><input type="checkbox" id="check"><a href="/execute/done/{{row['id']}}"></a></td>
+                                    <td><a href="execute/edit/{{row['id']}}">{{row['title']}}</a></td>
+                                    <td>{{row['description']}}</td>
+                                    <td>{{row['created_at']}}</td>
+                                    <td><a href="execute/delet/{{row['id']}}">Delet</a></td>
+                                </tr>
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
                 </table>
             </div>
         {% elif session['language'] == 'es' %}
@@ -89,22 +131,50 @@
                         <th>Creado en</th>
                         <th>Acciones</th>
                     </tr>
-                    <tr>
-                        <td>Nulo</td>
-                        <td>Nulo</td>
-                        <td>Nulo</td>
-                        <td>Nulo</td>
-                        <td>Nulo</td>
-                    </tr>
+                    {% for row in rows %}
+                        {% if row['done'] != 'N' %}
+                            <tr class="Done">
+                                <td id="Done"><input type="checkbox" id="check" checked><a href="execute/notdone/{{row['id']}}"></a></td>
+                                <td><a href="execute/edit/{{row['id']}}">{{row['title']}}</a></td>
+                                <td>{{row['description']}}</td>
+                                <td>{{row['created_at']}}</td>
+                                <td><a href="execute/delet/{{row['id']}}">Delet</a></td>
+                            </tr>
+                        {% else %}
+                            {% if row['expired'] != True %}
+                                <tr class="Expired">
+                                    <td id="Done"><input type="checkbox" id="check"><a href="execute/done/{{row['id']}}"></a></td>
+                                    <td><a href="execute/edit/{{row['id']}}">{{row['title']}}</a></td>
+                                    <td>{{row['description']}}</td>
+                                    <td>{{row['created_at']}}</td>
+                                    <td><a href="execute/delet/{{row['id']}}">Delet</a></td>
+                                </tr>
+                            {% else %}
+                                <tr>
+                                    <td id="Done"><input type="checkbox" id="check"><a href="/execute/done/{{row['id']}}"></a></td>
+                                    <td><a href="execute/edit/{{row['id']}}">{{row['title']}}</a></td>
+                                    <td>{{row['description']}}</td>
+                                    <td>{{row['created_at']}}</td>
+                                    <td><a href="execute/delet/{{row['id']}}">Delet</a></td>
+                                </tr>
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
                 </table>
             </div>
         {% else %}
-            <h1>Server crashed, please try again later!</h1>
+            <h1>Language not found try we have languages:</h1>
+            <ul>
+                <li><a href="/en/">English</a></li>
+                <li><a href="/pt/">Portuguese</a></li>
+                <li><a href="/es/">Spanish</a></li>
+            </ul>
         {% endif %}
     {% else %}
         {% if session['language'] == 'en' %}
             <div id="task">
                 <h1 id="tableTitle">All</h1>
+                <p>Add first task</p>
                 <div id="menu">
                     <ul>
                         <li><a href="/en/addTask"><button>+ Task</button></a></li>
@@ -131,6 +201,7 @@
         {% elif session['language'] == 'pt' %}
             <div id="task">
                 <h1 id="tableTitle">Todo</h1>
+                <p>Adicione primeira tarefa</p>
                 <div id="menu">
                     <ul>
                         <li><button>+ Tarefa</button></li>
@@ -145,18 +216,21 @@
                         <th>Criado em</th>
                         <th>Ações</th>
                     </tr>
-                    <tr>
-                        <td>Vazio</td>
-                        <td>Vazio</td>
-                        <td>Vazio</td>
-                        <td>Vazio</td>
-                        <td>Vazio</td>
-                    </tr>
+                    {% for row in rows %}
+                        <tr>
+                            <td>{{row['done']}}</td>
+                            <td>{{row['title']}}</td>
+                            <td>{{row['description']}}</td>
+                            <td>{{row['created_at']}}</td>
+                            <td>Delet</td>
+                        </tr>
+                    {% endfor %}
                 </table>
             </div>
         {% elif session['language'] == 'es' %}
             <div id="task">
                 <h1 id="tableTitle">Todo</h1>
+                <p>Añadir primera tarea</p>
                 <div id="menu">
                     <ul>
                         <li><button>+ Tarea</button></li>
@@ -181,7 +255,12 @@
                 </table>
             </div>
         {% else %}
-            <h1>Server crashed, please try again later!</h1>
+            <h1>Language not found try we have languages:</h1>
+            <ul>
+                <li><a href="/en/">English</a></li>
+                <li><a href="/pt/">Portuguese</a></li>
+                <li><a href="/es/">Spanish</a></li>
+            </ul>
         {% endif %}
     {% endif %}
 {% endblock %}

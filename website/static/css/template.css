@@ -5,6 +5,12 @@ body {
     background-color: rgb(230, 230, 230);
 }
 
+p {
+    padding: 5px 15px;
+    font-weight: bold;
+    padding-bottom: 0px;
+}
+
 header {
     width: 100%;
     height: 60px;
@@ -14,6 +20,10 @@ header {
     left: 0px;
 }
 
+div {
+    z-index: 1;
+}
+
 div#header {
     width: 100%;
     height: 25px;
@@ -21,6 +31,7 @@ div#header {
     background: none;
     border: none;
     box-shadow: 0px 6px 6px rgb(0, 0, 0, 0.3);
+    z-index: 999;
 }
 
 header ul {
@@ -165,4 +176,43 @@ div#task table tr:first-child th {
     color: rgb(75, 75, 75);
     background-color: rgb(200, 200, 200);
     border-bottom: 2px solid rgb(75, 75, 75);
+}
+
+div#task table tr.Done td {
+    background-color: rgb(0, 255, 0);
+}
+
+div#task table tr.Done td:hover,
+div#task table tr.Done td:nth-child(2n):hover {
+    background-color: rgb(0, 200, 0);
+}
+
+div#task table tr.Done td:nth-child(2n) {
+    background-color: rgb(0, 180, 0);
+}
+
+div#task table tr.Expired td {
+    background-color: rgb(255, 0, 0);
+}
+
+div#task table tr.Expired td:hover,
+div#task table tr.Expired td:nth-child(2n):hover {
+    background-color: rgb(180, 0, 0);
+}
+
+div#task table tr.Expired td:nth-child(2n) {
+    background-color: rgb(200, 0, 0);
+}
+
+div#task table tr td#Done input {
+    width: 15px;
+    height: 15px;
+    margin: 0px;
+}
+
+div#task table tr td#Done a {
+    width: 15px;
+    height: 15px;
+    margin-left: -15px;
+    position: absolute;
 }

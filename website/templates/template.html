@@ -26,7 +26,7 @@
                     {% elif session['language'] == 'pt' %}
                         <li><a href="/pt/home">Início</a></li>
                         <li id="buttonAcount" class="right"><button>Profile</button></li>
-                        <li class="right">
+                        <li id="selectLanguage" class="right">
                             <form action="execute/language" method="post">
                                 <select name="language" id="language">
                                     <option value="pt">Portugues</option>
@@ -38,7 +38,7 @@
                     {% elif session['language'] == 'es' %}
                         <li><a href="/es/home">Comienzo</a></li>
                         <li id="buttonAcount" class="right"><button>Profile</button></li>
-                        <li class="right">
+                        <li id="selectLanguage" class="right">
                             <form action="execute/language" method="post">
                                 <select name="language" id="language">
                                     <option value="es">Español</option>
@@ -48,7 +48,7 @@
                             </form>
                         </li>
                     {% else %}
-                        <h1>Error</h1>
+                        <p>Error</p>
                     {% endif %}
                 </ul>
             </header>
