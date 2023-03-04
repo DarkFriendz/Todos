@@ -20,13 +20,21 @@
     {% if session['language'] == 'en' %}
         <div id="addTask">
             <h1 id="tableTitle">Task</h1>
-            <form action="execute/addTask" method="post">
-                <input type="text" name="title" id="title" placeholder="Títle" required/>
-                <input type="checkbox" name="done" id="done">
-                <textarea name="description" id="description" placeholder="Description"></textarea>
-                <input type="datetime-local" name="date" id="date">
-                <input type="submit" value="Save">
-            </form>
+            <div>
+                <form action="execute/addTask" method="post">
+                    <div>
+                        <input type="text" name="title" id="title" placeholder="Títle" required/>
+                        <input type="checkbox" name="done" class="right" id="done"><span class="right">Done:</span>
+                    </div>
+                    <div>
+                        <textarea name="description" id="description" placeholder="Description"></textarea>
+                    </div>
+                    <div>
+                        <input type="datetime-local" name="date" id="date">
+                        <input type="submit" class="right" id="submit" value="Save">
+                    </div>
+                </form>
+            </div>
         </div>
     {% elif session['language'] == 'pt' %}
     {% elif session['language'] == 'es' %}
