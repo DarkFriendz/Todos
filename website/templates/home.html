@@ -39,11 +39,11 @@
                         {% if row['done'] != 'N' %}
                             <tr class="Done">
                                 <td id="Done"><input type="checkbox" id="check" checked><a href="execute/notdone/{{row['id']}}"></a></td>
-                                <td><a href="execute/edit/{{row['id']}}">{{row['title']}}</a></td>
-                                {% if row['description'] != None %}
+                                <td><a href="edit/{{row['id']}}">{{row['title']}}</a></td>
+                                {% if row['description'] != None and row['description'] != '' %}
                                     <td>{{row['description']}}</td>
                                 {% else %}
-                                    <td>Vázio</td>
+                                    <td>Null</td>
                                 {% endif %}
                                 <td>{{row['created_at']}}</td>
                                 <td><a href="execute/delet/{{row['id']}}">Delet</a></td>
@@ -52,11 +52,11 @@
                             {% if row['expired'] != True %}
                                 <tr class="Expired">
                                     <td id="Done"><input type="checkbox" id="check"><a href="execute/done/{{row['id']}}"></a></td>
-                                    <td><a href="execute/edit/{{row['id']}}">{{row['title']}}</a></td>
-                                    {% if row['description'] != None %}
+                                    <td><a href="edit/{{row['id']}}">{{row['title']}}</a></td>
+                                    {% if row['description'] != None and row['description'] != '' %}
                                         <td>{{row['description']}}</td>
                                     {% else %}
-                                        <td>Vázio</td>
+                                        <td>Null</td>
                                     {% endif %}
                                     <td>{{row['created_at']}}</td>
                                     <td><a href="execute/delet/{{row['id']}}">Delet</a></td>
@@ -64,11 +64,11 @@
                             {% else %}
                                 <tr>
                                     <td id="Done"><input type="checkbox" id="check"><a href="/execute/done/{{row['id']}}"></a></td>
-                                    <td><a href="execute/edit/{{row['id']}}">{{row['title']}}</a></td>
-                                    {% if row['description'] != None %}
+                                    <td><a href="edit/{{row['id']}}">{{row['title']}}</a></td>
+                                    {% if row['description'] != None and row['description'] != '' %}
                                         <td>{{row['description']}}</td>
                                     {% else %}
-                                        <td>Vázio</td>
+                                        <td>Null</td>
                                     {% endif %}
                                     <td>{{row['created_at']}}</td>
                                     <td><a href="execute/delet/{{row['id']}}">Delet</a></td>
@@ -99,8 +99,12 @@
                         {% if row['done'] != 'N' %}
                             <tr class="Done">
                                 <td id="Done"><input type="checkbox" id="check" checked><a href="execute/notdone/{{row['id']}}"></a></td>
-                                <td><a href="execute/edit/{{row['id']}}">{{row['title']}}</a></td>
-                                <td>{{row['description']}}</td>
+                                <td><a href="edit/{{row['id']}}">{{row['title']}}</a></td>
+                                {% if row['description'] != None and row['description'] != '' %}
+                                    <td>{{row['description']}}</td>
+                                {% else %}
+                                    <td>Vázio</td>
+                                {% endif %}
                                 <td>{{row['created_at']}}</td>
                                 <td><a href="execute/delet/{{row['id']}}">Delet</a></td>
                             </tr>
@@ -108,16 +112,24 @@
                             {% if row['expired'] != True %}
                                 <tr class="Expired">
                                     <td id="Done"><input type="checkbox" id="check"><a href="execute/done/{{row['id']}}"></a></td>
-                                    <td><a href="execute/edit/{{row['id']}}">{{row['title']}}</a></td>
-                                    <td>{{row['description']}}</td>
+                                    <td><a href="edit/{{row['id']}}">{{row['title']}}</a></td>
+                                    {% if row['description'] != None and row['description'] != '' %}
+                                        <td>{{row['description']}}</td>
+                                    {% else %}
+                                        <td>Vázio</td>
+                                    {% endif %}
                                     <td>{{row['created_at']}}</td>
                                     <td><a href="execute/delet/{{row['id']}}">Delet</a></td>
                                 </tr>
                             {% else %}
                                 <tr>
                                     <td id="Done"><input type="checkbox" id="check"><a href="/execute/done/{{row['id']}}"></a></td>
-                                    <td><a href="execute/edit/{{row['id']}}">{{row['title']}}</a></td>
-                                    <td>{{row['description']}}</td>
+                                    <td><a href="edit/{{row['id']}}">{{row['title']}}</a></td>
+                                    {% if row['description'] != None and row['description'] != '' %}
+                                        <td>{{row['description']}}</td>
+                                    {% else %}
+                                        <td>Vázio</td>
+                                    {% endif %}
                                     <td>{{row['created_at']}}</td>
                                     <td><a href="execute/delet/{{row['id']}}">Delet</a></td>
                                 </tr>
@@ -147,7 +159,7 @@
                         {% if row['done'] != 'N' %}
                             <tr class="Done">
                                 <td id="Done"><input type="checkbox" id="check" checked><a href="execute/notdone/{{row['id']}}"></a></td>
-                                <td><a href="execute/edit/{{row['id']}}">{{row['title']}}</a></td>
+                                <td><a href="edit/{{row['id']}}">{{row['title']}}</a></td>
                                 <td>{{row['description']}}</td>
                                 <td>{{row['created_at']}}</td>
                                 <td><a href="execute/delet/{{row['id']}}">Delet</a></td>
@@ -156,7 +168,7 @@
                             {% if row['expired'] != True %}
                                 <tr class="Expired">
                                     <td id="Done"><input type="checkbox" id="check"><a href="execute/done/{{row['id']}}"></a></td>
-                                    <td><a href="execute/edit/{{row['id']}}">{{row['title']}}</a></td>
+                                    <td><a href="edit/{{row['id']}}">{{row['title']}}</a></td>
                                     <td>{{row['description']}}</td>
                                     <td>{{row['created_at']}}</td>
                                     <td><a href="execute/delet/{{row['id']}}">Delet</a></td>
@@ -164,7 +176,7 @@
                             {% else %}
                                 <tr>
                                     <td id="Done"><input type="checkbox" id="check"><a href="/execute/done/{{row['id']}}"></a></td>
-                                    <td><a href="execute/edit/{{row['id']}}">{{row['title']}}</a></td>
+                                    <td><a href="edit/{{row['id']}}">{{row['title']}}</a></td>
                                     <td>{{row['description']}}</td>
                                     <td>{{row['created_at']}}</td>
                                     <td><a href="execute/delet/{{row['id']}}">Delet</a></td>

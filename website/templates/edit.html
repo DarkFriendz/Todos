@@ -2,11 +2,11 @@
 
 {% block title %}
     {% if session['language'] == 'en' %}
-        Add Task
+        Edit Task
     {% elif session['language'] == 'pt' %}
-        Adicionar Tarefa
+        Editar Tarefa
     {% elif session['language'] == 'es' %}
-        Agregar Tarea
+        Editar Tarea
     {% else %}
         Error
     {% endif %}
@@ -18,21 +18,34 @@
 
 {% block content %}
     {% if session['language'] == 'en' %}
-        <div id="addTask">
+        <div id="editTask">
             <h1 id="tableTitle">Task</h1>
             <div>
-                <form action="execute/addTask" method="post">
+                <form action="/{{session['language']}}/execute/edit/{{row['id']}}" method="post">
                     <div>
-                        <input type="text" name="title" id="title" placeholder="Títle" required/>
-                        <input type="checkbox" name="done" class="right" id="done"><span class="right">Done:</span>
+                        <input type="text" name="title" id="title" value="{{row['title']}}" required/>
+                        {% if row['done'] != 'S' %}
+                            <input type="checkbox" name="done" class="right" id="done"><span class="right">Done:</span>
+                        {% else %}
+                            <input type="checkbox" name="done" class="right" id="done" checked><span class="right">Done:</span>
+                        {% endif %}
+                    </div> 
+                    <div>
+                        {% if row['description'] != None and row['description'] != '' %}
+                            <textarea name="description" id="description">{{row['description']}}</textarea>
+                        {% else %}
+                            <textarea name="description" id="description" placeholder="Vázio"></textarea>
+                        {% endif %}
                     </div>
                     <div>
-                        <textarea name="description" id="description" placeholder="Description"></textarea>
-                    </div>
-                    <div>
-                        <input type="datetime-local" name="date" id="date">
-                        <input type="submit" class="right" id="submit" value="Save">
-                        <a href="/en/home" class="right" id="back">Return</a>
+                        {% if row['due_date'] != None %}
+                            <input type="datetime-local" name="date" id="date" value="{{row['due_date']}}T00:00:00">
+                        {% else %}
+                            <input type="datetime-local" name="date" id="date">
+                        {% endif %}
+                        <input type="submit" class="right" id="submit" value="Edit">
+                        <a href="/en/execute/delet/{{row['id']}}" class="right" id="back">Delet</a>
+                        <a href="/en/home" class="right" id="warning">Return</a>
                     </div>
                 </form>
             </div>

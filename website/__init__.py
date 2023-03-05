@@ -37,16 +37,21 @@ class web():
         #Home
         @self.website.route('/<lang>/')
         @self.website.route('/<lang>/<page>')
-        def home(lang=None, page=None):
+        @self.website.route('/<lang>/<page>/<id>')
+        def home(lang=None, page=None, id=None):
             if lang != None:
                 if page != None:
                     if page == 'home':
                         self.db.getAll(session['language'])
                         session['language'] = lang
                         return render_template('home.html', rows=self.db.result['info'])
-                    if page == 'addTask':
+                    elif page == 'addTask':
                         session['language'] = lang
                         return render_template('task.html')
+                    elif page == 'edit':
+                        self.db.getRow(id)
+                        session['language'] = lang
+                        return render_template('edit.html', row=self.db.result['info'])
                 else:
                     session['language'] = lang
                     return redirect(f'/{lang}/home')
@@ -55,13 +60,14 @@ class web():
             return redirect(f'/en/')
         
         #Execute
+        @self.website.route('/<lang>/execute/<func>/<id>', methods=['POST', 'GET'])
         @self.website.route('/<lang>/execute/<func>', methods=['POST'])
-        def execute(lang, func):
+        def execute(lang=None, func=None, id=None):
+            #Add Task
             if func == 'addTask':
                 if request.form['title'] != '' and len(request.form['title']) >= 3:
                     self.db.addTask(request.form)
-                    #return redirect('/en/addTask')
-                    return request.form
+                    return redirect(f'/{lang}/addTask')
                 else:
                     if lang == 'en':
                         flash('Title is too short!')
@@ -71,8 +77,29 @@ class web():
                         flash('¡El título es demasiado corto!')
                     else:
                         flash('Title is too short!')
-                    
-                    return redirect('/en/addTask')
+
+                    session['language'] = lang
+                    return redirect(f'/{lang}/addTask')
+
+            #Delete Task
+            elif func == 'delet':
+                self.db.deletTask(id)
+                session['language'] = lang
+                return redirect(f'/{lang}/home')
+            
+            #Edit Task
+            elif func == 'edit':
+                self.db.editTask(id, request.form)
+                return redirect(f'/{lang}/edit/{id}')
+            
+            #Done Task
+            elif func == 'edit':
+                self.db.Done(id)
+                return redirect(f'/{lang}/home')
+
+            elif func == None:
+                session['language'] = lang
+                return redirect(f'/{lang}/home')
 
         #Run
         self.website.run(debug=debug)
