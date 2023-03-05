@@ -32,12 +32,51 @@
                     <div>
                         <input type="datetime-local" name="date" id="date">
                         <input type="submit" class="right" id="submit" value="Save">
+                        <a href="/pt/home" class="right" id="back">Return</a>
                     </div>
                 </form>
             </div>
         </div>
     {% elif session['language'] == 'pt' %}
+        <div id="addTask">
+            <h1 id="tableTitle">Tarefa</h1>
+            <div>
+                <form action="execute/addTask" method="post">
+                    <div>
+                        <input type="text" name="title" id="title" placeholder="Título" required/>
+                        <input type="checkbox" name="done" class="right" id="done"><span class="right">Feito:</span>
+                    </div>
+                    <div>
+                        <textarea name="description" id="description" placeholder="Descrição"></textarea>
+                    </div>
+                    <div>
+                        <input type="datetime-local" name="date" id="date">
+                        <input type="submit" class="right" id="submit" value="Salvar">
+                        <a href="/pt/home" class="right" id="back">Voltar</a>
+                    </div>
+                </form>
+            </div>
+        </div>
     {% elif session['language'] == 'es' %}
+        <div id="addTask">
+            <h1 id="tableTitle">Tarea</h1>
+            <div>
+                <form action="execute/addTask" method="post">
+                    <div>
+                        <input type="text" name="title" id="title" placeholder="Título" required/>
+                        <input type="checkbox" name="done" class="right" id="done"><span class="right">Hecho:</span>
+                    </div>
+                    <div>
+                        <textarea name="description" id="description" placeholder="Descripción"></textarea>
+                    </div>
+                    <div>
+                        <input type="datetime-local" name="date" id="date">
+                        <input type="submit" class="right" id="submit" value="Ahorrar">
+                        <a href="/es/home" class="right" id="back">Volver</a>
+                    </div>
+                </form>
+            </div>
+        </div>
     {% else %}
         <h1>Language not found try we have languages:</h1>
         <ul>

@@ -21,6 +21,7 @@ class web():
     #Run Website
     def run(self, debug:bool=False):
 
+        #Index
         @self.website.route('/')
         @self.website.route('/<lang>')
         def index(lang=None):
@@ -33,6 +34,7 @@ class web():
             session['language'] = 'en'
             return redirect('/en/')
         
+        #Home
         @self.website.route('/<lang>/')
         @self.website.route('/<lang>/<page>')
         def home(lang=None, page=None):
