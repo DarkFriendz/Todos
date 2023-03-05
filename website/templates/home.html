@@ -40,7 +40,11 @@
                             <tr class="Done">
                                 <td id="Done"><input type="checkbox" id="check" checked><a href="execute/notdone/{{row['id']}}"></a></td>
                                 <td><a href="execute/edit/{{row['id']}}">{{row['title']}}</a></td>
-                                <td>{{row['description']}}</td>
+                                {% if row['description'] != None %}
+                                    <td>{{row['description']}}</td>
+                                {% else %}
+                                    <td>Vázio</td>
+                                {% endif %}
                                 <td>{{row['created_at']}}</td>
                                 <td><a href="execute/delet/{{row['id']}}">Delet</a></td>
                             </tr>
@@ -49,7 +53,11 @@
                                 <tr class="Expired">
                                     <td id="Done"><input type="checkbox" id="check"><a href="execute/done/{{row['id']}}"></a></td>
                                     <td><a href="execute/edit/{{row['id']}}">{{row['title']}}</a></td>
-                                    <td>{{row['description']}}</td>
+                                    {% if row['description'] != None %}
+                                        <td>{{row['description']}}</td>
+                                    {% else %}
+                                        <td>Vázio</td>
+                                    {% endif %}
                                     <td>{{row['created_at']}}</td>
                                     <td><a href="execute/delet/{{row['id']}}">Delet</a></td>
                                 </tr>
@@ -57,7 +65,11 @@
                                 <tr>
                                     <td id="Done"><input type="checkbox" id="check"><a href="/execute/done/{{row['id']}}"></a></td>
                                     <td><a href="execute/edit/{{row['id']}}">{{row['title']}}</a></td>
-                                    <td>{{row['description']}}</td>
+                                    {% if row['description'] != None %}
+                                        <td>{{row['description']}}</td>
+                                    {% else %}
+                                        <td>Vázio</td>
+                                    {% endif %}
                                     <td>{{row['created_at']}}</td>
                                     <td><a href="execute/delet/{{row['id']}}">Delet</a></td>
                                 </tr>
@@ -216,15 +228,13 @@
                         <th>Criado em</th>
                         <th>Ações</th>
                     </tr>
-                    {% for row in rows %}
-                        <tr>
-                            <td>{{row['done']}}</td>
-                            <td>{{row['title']}}</td>
-                            <td>{{row['description']}}</td>
-                            <td>{{row['created_at']}}</td>
-                            <td>Delet</td>
-                        </tr>
-                    {% endfor %}
+                    <tr>
+                        <td>Vázio</td>
+                        <td>Vázio</td>
+                        <td>Vázio</td>
+                        <td>Vázio</td>
+                        <td>Vázio</td>
+                    </tr>
                 </table>
             </div>
         {% elif session['language'] == 'es' %}
