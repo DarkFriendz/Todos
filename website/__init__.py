@@ -93,8 +93,15 @@ class web():
                 return redirect(f'/{lang}/edit/{id}')
             
             #Done Task
-            elif func == 'edit':
+            elif func == 'done':
+                print('aqui')
                 self.db.Done(id)
+                return redirect(f'/{lang}/home')
+            
+            #Not Done Task
+            elif func == 'notdone':
+                print('aqui')
+                self.db.NotDone(id)
                 return redirect(f'/{lang}/home')
 
             elif func == None:

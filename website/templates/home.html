@@ -45,7 +45,11 @@
                                 {% else %}
                                     <td>Null</td>
                                 {% endif %}
-                                <td>{{row['created_at']}}</td>
+                                {% if row['due_date'] != None and row['due_date'] != ''  %}
+                                    <td>{{row['due_date']}}</td>
+                                {% else %}
+                                    <td>Null</td>   
+                                {% endif %}
                                 <td><a href="execute/delet/{{row['id']}}">Delet</a></td>
                             </tr>
                         {% else %}
@@ -58,19 +62,27 @@
                                     {% else %}
                                         <td>Null</td>
                                     {% endif %}
-                                    <td>{{row['created_at']}}</td>
+                                    {% if row['due_date'] != None and row['due_date'] != ''  %}
+                                        <td>{{row['due_date']}}</td>
+                                    {% else %}
+                                        <td>Null</td>
+                                    {% endif %}
                                     <td><a href="execute/delet/{{row['id']}}">Delet</a></td>
                                 </tr>
                             {% else %}
                                 <tr>
-                                    <td id="Done"><input type="checkbox" id="check"><a href="/execute/done/{{row['id']}}"></a></td>
+                                    <td id="Done"><input type="checkbox" id="check"><a href="execute/done/{{row['id']}}"></a></td>
                                     <td><a href="edit/{{row['id']}}">{{row['title']}}</a></td>
                                     {% if row['description'] != None and row['description'] != '' %}
                                         <td>{{row['description']}}</td>
                                     {% else %}
                                         <td>Null</td>
                                     {% endif %}
-                                    <td>{{row['created_at']}}</td>
+                                    {% if row['due_date'] != None and row['due_date'] != ''  %}
+                                        <td>{{row['due_date']}}</td>
+                                    {% else %}
+                                        <td>Null</td>   
+                                    {% endif %}
                                     <td><a href="execute/delet/{{row['id']}}">Delet</a></td>
                                 </tr>
                             {% endif %}
@@ -100,12 +112,16 @@
                             <tr class="Done">
                                 <td id="Done"><input type="checkbox" id="check" checked><a href="execute/notdone/{{row['id']}}"></a></td>
                                 <td><a href="edit/{{row['id']}}">{{row['title']}}</a></td>
-                                {% if row['description'] != None and row['description'] != '' %}
+                                {% if row['description'] != None or row['description'] != '' %}
                                     <td>{{row['description']}}</td>
                                 {% else %}
                                     <td>Vázio</td>
                                 {% endif %}
-                                <td>{{row['created_at']}}</td>
+                                {% if row['due_date'] != None and row['due_date'] != ''  %}
+                                    <td>{{row['due_date']}}</td>
+                                {% else %}
+                                    <td>Vázio</td>   
+                                {% endif %}
                                 <td><a href="execute/delet/{{row['id']}}">Delet</a></td>
                             </tr>
                         {% else %}
@@ -118,19 +134,27 @@
                                     {% else %}
                                         <td>Vázio</td>
                                     {% endif %}
-                                    <td>{{row['created_at']}}</td>
+                                    {% if row['due_date'] != None and row['due_date'] != ''  %}
+                                        <td>{{row['due_date']}}</td>
+                                    {% else %}
+                                        <td>Vázio</td>   
+                                    {% endif %}
                                     <td><a href="execute/delet/{{row['id']}}">Delet</a></td>
                                 </tr>
                             {% else %}
                                 <tr>
-                                    <td id="Done"><input type="checkbox" id="check"><a href="/execute/done/{{row['id']}}"></a></td>
+                                    <td id="Done"><input type="checkbox" id="check"><a href="execute/done/{{row['id']}}"></a></td>
                                     <td><a href="edit/{{row['id']}}">{{row['title']}}</a></td>
                                     {% if row['description'] != None and row['description'] != '' %}
                                         <td>{{row['description']}}</td>
                                     {% else %}
                                         <td>Vázio</td>
                                     {% endif %}
-                                    <td>{{row['created_at']}}</td>
+                                    {% if row['due_date'] != None and row['due_date'] != ''  %}
+                                        <td>{{row['due_date']}}</td>
+                                    {% else %}
+                                        <td>Vázio</td>   
+                                    {% endif %}
                                     <td><a href="execute/delet/{{row['id']}}">Delet</a></td>
                                 </tr>
                             {% endif %}
@@ -160,8 +184,16 @@
                             <tr class="Done">
                                 <td id="Done"><input type="checkbox" id="check" checked><a href="execute/notdone/{{row['id']}}"></a></td>
                                 <td><a href="edit/{{row['id']}}">{{row['title']}}</a></td>
-                                <td>{{row['description']}}</td>
-                                <td>{{row['created_at']}}</td>
+                                {% if row['description'] != None and row['description'] != '' %}
+                                    <td>{{row['description']}}</td>
+                                {% else %}
+                                    <td>Nulo</td>
+                                {% endif %}
+                                {% if row['due_date'] != None and row['due_date'] != ''  %}
+                                    <td>{{row['due_date']}}</td>
+                                {% else %}
+                                    <td>Nulo</td>   
+                                {% endif %}
                                 <td><a href="execute/delet/{{row['id']}}">Delet</a></td>
                             </tr>
                         {% else %}
@@ -169,16 +201,32 @@
                                 <tr class="Expired">
                                     <td id="Done"><input type="checkbox" id="check"><a href="execute/done/{{row['id']}}"></a></td>
                                     <td><a href="edit/{{row['id']}}">{{row['title']}}</a></td>
-                                    <td>{{row['description']}}</td>
-                                    <td>{{row['created_at']}}</td>
+                                    {% if row['description'] != None and row['description'] != '' %}
+                                        <td>{{row['description']}}</td>
+                                    {% else %}
+                                        <td>Nulo</td>
+                                    {% endif %}
+                                    {% if row['due_date'] != None and row['due_date'] != ''  %}
+                                        <td>{{row['due_date']}}</td>
+                                    {% else %}
+                                        <td>Nulo</td>   
+                                    {% endif %}
                                     <td><a href="execute/delet/{{row['id']}}">Delet</a></td>
                                 </tr>
                             {% else %}
                                 <tr>
-                                    <td id="Done"><input type="checkbox" id="check"><a href="/execute/done/{{row['id']}}"></a></td>
+                                    <td id="Done"><input type="checkbox" id="check"><a href="execute/done/{{row['id']}}"></a></td>
                                     <td><a href="edit/{{row['id']}}">{{row['title']}}</a></td>
-                                    <td>{{row['description']}}</td>
-                                    <td>{{row['created_at']}}</td>
+                                    {% if row['description'] != None and row['description'] != '' %}
+                                        <td>{{row['description']}}</td>
+                                    {% else %}
+                                        <td>Nulo</td>
+                                    {% endif %}
+                                    {% if row['due_date'] != None and row['due_date'] != ''  %}
+                                        <td>{{row['due_date']}}</td>
+                                    {% else %}
+                                        <td>Nulo</td>   
+                                    {% endif %}
                                     <td><a href="execute/delet/{{row['id']}}">Delet</a></td>
                                 </tr>
                             {% endif %}
