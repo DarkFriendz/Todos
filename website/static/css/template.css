@@ -133,7 +133,20 @@ div#task div#menu ul li button {
     cursor: pointer;
 }
 
-div#task div#menu ul li#inputSearch {
+div#task div#menu ul li select {
+    width: 180px;
+    padding: 3.5px 10px;
+    font-weight: bold;
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 8px;
+}
+div#task div#menu ul li input#searchDate {
+    width: 160px;
+    padding: 3.5px 10px;
+    display: none;
+}
+
+div#task div#menu ul li.right {
     width: 180px;
     float: right;
 }

@@ -24,10 +24,21 @@
                 <div id="menu">
                     <ul>
                         <li><a href="addTask"><button>+ Task</button></a></li>
-                        <li id="inputSearch"><input type="search" name="search" id="search" placeholder="Search"></li>
+                        <li class="right"><input type="search" name="search" id="search" placeholder="Search"></li>
+                        <li class="right"><input type="datetime-local" name="searchDate" id="searchDate"></li>
+                        <li class="right">
+                            <select name="select" id="select">
+                                <option value="title">Title</option>
+                                <option value="description">Description</option>
+                                <option value="date">Date</option>
+                                <option value="done">Done</option>
+                                <option value="notdone">Not Done</option>
+                                <option value="expired">Expired</option>
+                            </select>
+                        </li>
                     </ul>
                 </div>
-                <table>
+                <table id="Table">
                     <tr>
                         <th>Done</th>
                         <th>Title</th>
@@ -99,7 +110,7 @@
                         <li id="inputSearch"><input type="search" name="search" id="search" placeholder="Pesquisar"></li>
                     </ul>
                 </div>
-                <table>
+                <table id="Table">
                     <tr>
                         <th>Feito</th>
                         <th>Título</th>
@@ -171,7 +182,7 @@
                         <li id="inputSearch"><input type="search" name="search" id="search" placeholder="Buscar"></li>
                     </ul>
                 </div>
-                <table>
+                <table id="Table">
                     <tr>
                         <th>Hecho</th>
                         <th>Título</th>
@@ -253,7 +264,7 @@
                         <li id="inputSearch"><input type="search" name="search" id="search" placeholder="Search"></li>
                     </ul>
                 </div>
-                <table>
+                <table id="Table">
                     <tr>
                         <th>Done</th>
                         <th>Title</th>
@@ -280,7 +291,7 @@
                         <li id="inputSearch"><input type="search" name="search" id="search" placeholder="Pesquisar"></li>
                     </ul>
                 </div>
-                <table>
+                <table id="Table">
                     <tr>
                         <th>Feito</th>
                         <th>Título</th>
@@ -307,7 +318,7 @@
                         <li id="inputSearch"><input type="search" name="search" id="search" placeholder="Buscar"></li>
                     </ul>
                 </div>
-                <table>
+                <table id="Table">
                     <tr>
                         <th>Hecho</th>
                         <th>Título</th>
