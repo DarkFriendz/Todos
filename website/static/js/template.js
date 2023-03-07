@@ -13,14 +13,17 @@ select.addEventListener("change", function() {
     }
     switch(select.value) {
         case 'title':
+            search.value = ""
             search.style.display = "block";
             searchDate.style.display = "none";
         break;
         case 'description':
+            search.value = ""
             search.style.display = "block";
             searchDate.style.display = "none";
         break;
         case 'date':
+            searchDate.value = ""
             search.style.display = "none";
             searchDate.style.display = "block";
         break;
