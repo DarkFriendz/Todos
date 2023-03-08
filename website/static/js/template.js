@@ -6,3 +6,8 @@ const selectInput = document.getElementById("language")
 selectInput.addEventListener("change", function() {
     formLanguage.submit()
 })
+
+//Flash Message
+function flash() {
+    document.getElementById("flashMessages").remove()
+}

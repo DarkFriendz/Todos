@@ -34,7 +34,7 @@
                         {% if row['description'] != None and row['description'] != '' %}
                             <textarea name="description" id="description">{{row['description']}}</textarea>
                         {% else %}
-                            <textarea name="description" id="description" placeholder="Vázio"></textarea>
+                            <textarea name="description" id="description" placeholder="Null"></textarea>
                         {% endif %}
                     </div>
                     <div>
@@ -63,41 +63,91 @@
             </div>
         </div>
     {% elif session['language'] == 'pt' %}
-        <div id="addTask">
+        <div id="template">
             <h1 id="tableTitle">Tarefa</h1>
-            <div>
-                <form action="execute/addTask" method="post">
+            <div id="menu">
+                <form action="/{{session['language']}}/execute/edit/{{row['id']}}" method="post">
                     <div>
-                        <input type="text" name="title" id="title" placeholder="Título" required/>
-                        <input type="checkbox" name="done" class="right" id="done"><span class="right">Feito:</span>
+                        <input type="text" name="title" id="title" value="{{row['title']}}" required/>
+                        {% if row['done'] != 'S' %}
+                            <input type="checkbox" name="done" class="right" id="done"><span class="right">Feito:</span>
+                        {% else %}
+                            <input type="checkbox" name="done" class="right" id="done" checked><span class="right">Feito:</span>
+                        {% endif %}
+                    </div> 
+                    <div>
+                        {% if row['description'] != None and row['description'] != '' %}
+                            <textarea name="description" id="description">{{row['description']}}</textarea>
+                        {% else %}
+                            <textarea name="description" id="description" placeholder="Vázio"></textarea>
+                        {% endif %}
                     </div>
                     <div>
-                        <textarea name="description" id="description" placeholder="Descrição"></textarea>
+                        <table>
+                            <tr>
+                                <th>Criado em</th>
+                                <th>Atualizado em</th>
+                            </tr>
+                            <tr>
+                                <td>{{row['created_at']}}</td>
+                                <td>{{row['updated_at']}}</td>
+                            </tr>
+                        </table>
                     </div>
                     <div>
-                        <input type="datetime-local" name="date" id="date">
-                        <input type="submit" class="right" id="submit" value="Salvar">
-                        <a href="/pt/home" class="right" id="back">Voltar</a>
+                        {% if row['due_date'] != None %}
+                            <input type="datetime-local" name="date" id="date" value="{{row['due_date']}}T00:00:00">
+                        {% else %}
+                            <input type="datetime-local" name="date" id="date">
+                        {% endif %}
+                        <a href="/pt/home" id="back">Voltar</a>
+                        <a href="/pt/execute/delet/{{row['id']}}" id="warning">Deletar</a>
+                        <input type="submit" id="submit" value="Editar">
                     </div>
                 </form>
             </div>
         </div>
     {% elif session['language'] == 'es' %}
-        <div id="addTask">
+        <div id="template">
             <h1 id="tableTitle">Tarea</h1>
-            <div>
-                <form action="execute/addTask" method="post">
+            <div id="menu">
+                <form action="/{{session['language']}}/execute/edit/{{row['id']}}" method="post">
                     <div>
-                        <input type="text" name="title" id="title" placeholder="Título" required/>
-                        <input type="checkbox" name="done" class="right" id="done"><span class="right">Hecho:</span>
+                        <input type="text" name="title" id="title" value="{{row['title']}}" required/>
+                        {% if row['done'] != 'S' %}
+                            <input type="checkbox" name="done" class="right" id="done"><span class="right">Hecho:</span>
+                        {% else %}
+                            <input type="checkbox" name="done" class="right" id="done" checked><span class="right">Hecho:</span>
+                        {% endif %}
+                    </div> 
+                    <div>
+                        {% if row['description'] != None and row['description'] != '' %}
+                            <textarea name="description" id="description">{{row['description']}}</textarea>
+                        {% else %}
+                            <textarea name="description" id="description" placeholder="Nulo"></textarea>
+                        {% endif %}
                     </div>
                     <div>
-                        <textarea name="description" id="description" placeholder="Descripción"></textarea>
+                        <table>
+                            <tr>
+                                <th>Creado en</th>
+                                <th>Actualizado en</th>
+                            </tr>
+                            <tr>
+                                <td>{{row['created_at']}}</td>
+                                <td>{{row['updated_at']}}</td>
+                            </tr>
+                        </table>
                     </div>
                     <div>
-                        <input type="datetime-local" name="date" id="date">
-                        <input type="submit" class="right" id="submit" value="Ahorrar">
-                        <a href="/es/home" class="right" id="back">Volver</a>
+                        {% if row['due_date'] != None %}
+                            <input type="datetime-local" name="date" id="date" value="{{row['due_date']}}T00:00:00">
+                        {% else %}
+                            <input type="datetime-local" name="date" id="date">
+                        {% endif %}
+                        <a href="/es/home" id="back">Volver</a>
+                        <a href="/es/execute/delet/{{row['id']}}" id="warning">Eliminar</a>
+                        <input type="submit" id="submit" value="Editar">
                     </div>
                 </form>
             </div>
@@ -113,5 +163,6 @@
 {% endblock %}
 
 {% block scripts %}
+    <script src="{{url_for('static', filename='js/template.js')}}"></script>
     <script src="{{url_for('static', filename='js/date.js')}}"></script>
 {% endblock %}

@@ -67,7 +67,15 @@ class web():
             if func == 'addTask':
                 if request.form['title'] != '' and len(request.form['title']) >= 3:
                     self.db.addTask(request.form)
-                    flash('Add')
+                    if lang == 'en':
+                        flash('Add task successfully!', 'sucess')
+                    elif lang == 'pt':
+                        flash('Adicionar tarefa com sucesso!', 'sucess')
+                    elif lang == 'es':
+                        flash('¡Agregue la tarea con éxito!', 'sucess')
+                    else:
+                        flash('Add task successfully!', 'sucess')
+
                     return redirect(f'/{lang}/addTask')
                 else:
                     if lang == 'en':
@@ -85,22 +93,57 @@ class web():
             #Delete Task
             elif func == 'delet':
                 self.db.deletTask(id)
+                if lang == 'en':
+                    flash('Deleted task successfully!', 'sucess')
+                elif lang == 'pt':
+                    flash('Tarefa excluída com sucesso!', 'sucess')
+                elif lang == 'es':
+                    flash('¡Tarea eliminada con éxito!', 'sucess')
+                else:
+                    flash('Deleted task successfully!', 'sucess')
                 session['language'] = lang
                 return redirect(f'/{lang}/home')
             
             #Edit Task
             elif func == 'edit':
                 self.db.editTask(id, request.form)
+                if lang == 'en':
+                    flash('Edited task successfully!', 'sucess')
+                elif lang == 'pt':
+                    flash('Tarefa editada com sucesso!', 'sucess')
+                elif lang == 'es':
+                    flash('¡Tarea editada con éxito!', 'sucess')
+                else:
+                    flash('Edited task successfully!', 'sucess')
+                session['language'] = lang
                 return redirect(f'/{lang}/edit/{id}')
             
             #Done Task
             elif func == 'done':
                 self.db.Done(id)
+                if lang == 'en':
+                    flash('Finished task successfully!', 'sucess')
+                elif lang == 'pt':
+                    flash('Tarefa finalizada com sucesso!', 'sucess')
+                elif lang == 'es':
+                    flash('¡Tarea terminada con éxito!', 'sucess')
+                else:
+                    flash('Finished task successfully!', 'sucess')
+                session['language'] = lang
                 return redirect(f'/{lang}/home')
             
             #Not Done Task
             elif func == 'notdone':
                 self.db.NotDone(id)
+                if lang == 'en':
+                    flash('Undone task successfully!', 'warning')
+                elif lang == 'pt':
+                    flash('Tarefa desfeita com sucesso!', 'warning')
+                elif lang == 'es':
+                    flash('¡Tarea deshecha con éxito!', 'warning')
+                else:
+                    flash('Undone task successfully!', 'warning')
+                session['language'] = lang
                 return redirect(f'/{lang}/home')
             
             #Select Language

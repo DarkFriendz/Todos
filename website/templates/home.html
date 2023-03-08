@@ -98,13 +98,20 @@
                 </table>
             </div>
         {% elif session['language'] == 'pt' %}
-            <div id="task">
+            <div id="template">
                 <h1 id="tableTitle">Todo</h1>
                 <div id="menu">
-                    <ul>
-                        <li><a href="addTask"><button>+ Tarefa</button></a></li>
-                        <li id="inputSearch"><input type="search" name="search" id="search" placeholder="Pesquisar"></li>
-                    </ul>
+                    <a href="addTask" id="addTaskLink">+ Task</a>
+                    <input type="search" name="search" id="search" class="right" placeholder="Search">
+                    <input type="datetime-local" name="searchDate" class="right" id="searchDate">
+                    <select name="select" id="select" class="right">
+                        <option value="title">Título</option>
+                        <option value="description">Descrição</option>
+                        <option value="date">Data</option>
+                        <option value="done">Feito</option>
+                        <option value="notdone">Não Feito</option>
+                        <option value="expired">Expirado</option>
+                    </select>
                 </div>
                 <table id="Table">
                     <tr>
@@ -170,13 +177,20 @@
                 </table>
             </div>
         {% elif session['language'] == 'es' %}
-            <div id="task">
+            <div id="template">
                 <h1 id="tableTitle">Todo</h1>
                 <div id="menu">
-                    <ul>
-                        <li><a href="addTask"><button>+ Tarea</button></a></li>
-                        <li id="inputSearch"><input type="search" name="search" id="search" placeholder="Buscar"></li>
-                    </ul>
+                    <a href="addTask" id="addTaskLink">+ Task</a>
+                    <input type="search" name="search" id="search" class="right" placeholder="Search">
+                    <input type="datetime-local" name="searchDate" class="right" id="searchDate">
+                    <select name="select" id="select" class="right">
+                        <option value="title">Título</option>
+                        <option value="description">Descripción</option>
+                        <option value="date">Fecha</option>
+                        <option value="done">Hecho</option>
+                        <option value="notdone">No Hecho</option>
+                        <option value="expired">Venció</option>
+                    </select>
                 </div>
                 <table id="Table">
                     <tr>

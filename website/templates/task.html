@@ -38,9 +38,9 @@
             </div>
         </div>
     {% elif session['language'] == 'pt' %}
-        <div id="addTask">
+        <div id="template">
             <h1 id="tableTitle">Tarefa</h1>
-            <div>
+            <div id="menu">
                 <form action="execute/addTask" method="post">
                     <div>
                         <input type="text" name="title" id="title" placeholder="Título" required/>
@@ -58,9 +58,9 @@
             </div>
         </div>
     {% elif session['language'] == 'es' %}
-        <div id="addTask">
+        <div id="template">
             <h1 id="tableTitle">Tarea</h1>
-            <div>
+            <div id="menu">
                 <form action="execute/addTask" method="post">
                     <div>
                         <input type="text" name="title" id="title" placeholder="Título" required/>
@@ -72,7 +72,7 @@
                     <div>
                         <input type="datetime-local" name="date" id="date">
                         <input type="submit" class="right" id="submit" value="Ahorrar">
-                        <a href="/es/home" class="right" id="back">Volver</a>
+                        <a href="/es/home" class="right" id="back">Volar</a>
                     </div>
                 </form>
             </div>
@@ -88,5 +88,6 @@
 {% endblock %}
 
 {% block scripts %}
+    <script src="{{url_for('static', filename='js/template.js')}}"></script>
     <script src="{{url_for('static', filename='js/date.js')}}"></script>
 {% endblock %}

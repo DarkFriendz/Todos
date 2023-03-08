@@ -22,6 +22,18 @@ header {
     z-index: 999;
 }
 
+footer {
+    width: 100%;
+    height: 60px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(0, 0, 255);
+    box-shadow: 0px -6px 6px 6px rgb(0, 0, 0, 0.3);
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    z-index: 999;
+}
+
 div {
     z-index: 1;
 }
@@ -30,6 +42,16 @@ div#header {
     width: 10px;
     height: 25px;
     margin-bottom: 75px;
+    background: none;
+    box-shadow: none;
+    border: none;
+    z-index: 999;
+}
+
+div#footer {
+    width: 10px;
+    height: 25px;
+    margin-top: 75px;
     background: none;
     box-shadow: none;
     border: none;
@@ -79,6 +101,40 @@ header ul li#buttonAcount button {
 
 header ul li.right {
     float: right;
+}
+
+ul#flashMessages {
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    position: fixed;
+    top: 60px;
+    left: 0px;
+}
+
+ul#flashMessages li {
+    padding: 8px;
+    font-weight: bold;
+}
+
+ul#flashMessages li.sucess {
+    background-color: rgb(0, 255, 0);
+}
+
+ul#flashMessages li.error {
+    background-color: rgb(255, 0, 0);
+}
+
+ul#flashMessages li.warning {
+    background-color: rgb(255, 185, 0);
+}
+
+ul#flashMessages li button {
+    background: none;
+    border-radius: 15px;
+    float: right;
+    cursor: pointer;
 }
 
 div {
@@ -136,7 +192,7 @@ div#template div#menu input[type="checkbox"] {
 }
 
 div#template div#menu input#submit {
-    width: 55px;
+    width: 65px;
     background-color: rgb(0, 255, 0);
 }
 
