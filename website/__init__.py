@@ -94,15 +94,18 @@ class web():
             
             #Done Task
             elif func == 'done':
-                print('aqui')
                 self.db.Done(id)
                 return redirect(f'/{lang}/home')
             
             #Not Done Task
             elif func == 'notdone':
-                print('aqui')
                 self.db.NotDone(id)
                 return redirect(f'/{lang}/home')
+            
+            #Select Language
+            elif func == 'language':
+                session['language'] = request.form['language']
+                return redirect(f'/{request.form["language"]}/home')
 
             elif func == None:
                 session['language'] = lang

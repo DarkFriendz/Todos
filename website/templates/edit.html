@@ -43,9 +43,13 @@
                         {% else %}
                             <input type="datetime-local" name="date" id="date">
                         {% endif %}
-                        <input type="submit" class="right" id="submit" value="Edit">
-                        <a href="/en/execute/delet/{{row['id']}}" class="right" id="back">Delet</a>
-                        <a href="/en/home" class="right" id="warning">Return</a>
+                        <span>Craated in: {{row['created_at']}}</span>
+                        <span>Updated in: {{row['updated_at']}}</span>
+                    </div>
+                    <div>
+                        <input type="submit" id="submit" value="Edit">
+                        <a href="/en/execute/delet/{{row['id']}}" id="back">Delet</a>
+                        <a href="/en/home" id="warning">Return</a>
                     </div>
                 </form>
             </div>
@@ -101,5 +105,5 @@
 {% endblock %}
 
 {% block scripts %}
-
+    <script src="{{url_for('static', filename='js/date.js')}}"></script>
 {% endblock %}
