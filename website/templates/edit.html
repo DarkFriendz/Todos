@@ -18,9 +18,9 @@
 
 {% block content %}
     {% if session['language'] == 'en' %}
-        <div id="editTask">
-            <h1 id="tableTitle">Task</h1>
-            <div>
+        <div id="template">
+            <h1 id="tableTitle">Edit Task</h1>
+            <div id="menu">
                 <form action="/{{session['language']}}/execute/edit/{{row['id']}}" method="post">
                     <div>
                         <input type="text" name="title" id="title" value="{{row['title']}}" required/>
@@ -38,18 +38,26 @@
                         {% endif %}
                     </div>
                     <div>
+                        <table>
+                            <tr>
+                                <th>Craated in</th>
+                                <th>Updated in</th>
+                            </tr>
+                            <tr>
+                                <td>{{row['created_at']}}</td>
+                                <td>{{row['updated_at']}}</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div>
                         {% if row['due_date'] != None %}
                             <input type="datetime-local" name="date" id="date" value="{{row['due_date']}}T00:00:00">
                         {% else %}
                             <input type="datetime-local" name="date" id="date">
                         {% endif %}
-                        <span>Craated in: {{row['created_at']}}</span>
-                        <span>Updated in: {{row['updated_at']}}</span>
-                    </div>
-                    <div>
+                        <a href="/en/home" id="back">Return</a>
+                        <a href="/en/execute/delet/{{row['id']}}" id="warning">Delet</a>
                         <input type="submit" id="submit" value="Edit">
-                        <a href="/en/execute/delet/{{row['id']}}" id="back">Delet</a>
-                        <a href="/en/home" id="warning">Return</a>
                     </div>
                 </form>
             </div>

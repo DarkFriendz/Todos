@@ -67,6 +67,7 @@ class web():
             if func == 'addTask':
                 if request.form['title'] != '' and len(request.form['title']) >= 3:
                     self.db.addTask(request.form)
+                    flash('Add')
                     return redirect(f'/{lang}/addTask')
                 else:
                     if lang == 'en':

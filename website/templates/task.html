@@ -18,9 +18,9 @@
 
 {% block content %}
     {% if session['language'] == 'en' %}
-        <div id="addTask">
+        <div id="template">
             <h1 id="tableTitle">Task</h1>
-            <div>
+            <div id="menu">
                 <form action="execute/addTask" method="post">
                     <div>
                         <input type="text" name="title" id="title" placeholder="Títle" required/>

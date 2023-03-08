@@ -29,7 +29,7 @@ div {
 div#header {
     width: 10px;
     height: 25px;
-    margin-bottom: 35px;
+    margin-bottom: 75px;
     background: none;
     box-shadow: none;
     border: none;
@@ -114,9 +114,11 @@ div#template div#menu {
 }
 
 div#template div#menu input,
-div#template div#menu select {
+div#template div#menu select,
+div#template div#menu textarea,
+div#template div#menu a {
     padding: 5px 8px;
-    font-size: 13px;
+    font-size: 12px;
     font-weight: bold;
     text-decoration: none;
     color: rgb(0, 0, 0);
@@ -124,16 +126,48 @@ div#template div#menu select {
     border: 2px solid rgb(0, 0, 0);
     border-radius: 5px;
 }
+
 div#template div#menu input {
     width: 25%;
+}
+
+div#template div#menu input[type="checkbox"] {
+    width: 15px;
+}
+
+div#template div#menu input#submit {
+    width: 55px;
+    background-color: rgb(0, 255, 0);
+}
+
+div#template div#menu a#back {
+    background-color: rgb(255, 0, 0);
+}
+
+div#template div#menu a#warning {
+    background-color: rgb(255, 185, 0);
+}
+
+div#template div#menu input[type="datetime-local"] {
+    font-size: 10px;
 }
 
 div#template div#menu select {
     font-size: 11px;
 }
 
-div#template div#menu input[type="datetime-local"] {
-    font-size: 10px;
+div#template div#menu textarea {
+    width: 85%;
+    max-width: 100%;
+    min-width: 212px;
+    height: 65px;
+    max-height: 180px;
+    min-height: 65px;
+}
+
+div#template div#menu span {
+    font-size: 65%;
+    font-weight: bold;
 }
 
 div#template div#menu .right {
@@ -222,4 +256,11 @@ div#template table tr td#Done a {
     height: 15px;
     margin-left: -15px;
     position: absolute;
+}
+
+/* Add Task Page */
+
+div#template div#menu div {
+    margin: 0px auto;
+    box-shadow: none;
 }
