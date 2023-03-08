@@ -19,24 +19,20 @@
 {% block content %}
     {% if rows %}
         {% if session['language'] == 'en' %}
-            <div id="task">
+            <div id="template">
                 <h1 id="tableTitle">All</h1>
                 <div id="menu">
-                    <ul>
-                        <li><a href="addTask"><button>+ Task</button></a></li>
-                        <li class="right"><input type="search" name="search" id="search" placeholder="Search"></li>
-                        <li class="right"><input type="datetime-local" name="searchDate" id="searchDate"></li>
-                        <li class="right">
-                            <select name="select" id="select">
-                                <option value="title">Title</option>
-                                <option value="description">Description</option>
-                                <option value="date">Date</option>
-                                <option value="done">Done</option>
-                                <option value="notdone">Not Done</option>
-                                <option value="expired">Expired</option>
-                            </select>
-                        </li>
-                    </ul>
+                    <a href="addTask" id="addTaskLink">+ Task</a>
+                    <input type="search" name="search" id="search" class="right" placeholder="Search">
+                    <input type="datetime-local" name="searchDate" class="right" id="searchDate">
+                    <select name="select" id="select" class="right">
+                        <option value="title">Title</option>
+                        <option value="description">Description</option>
+                        <option value="date">Date</option>
+                        <option value="done">Done</option>
+                        <option value="notdone">Not Done</option>
+                        <option value="expired">Expired</option>
+                    </select>
                 </div>
                 <table id="Table">
                     <tr>
